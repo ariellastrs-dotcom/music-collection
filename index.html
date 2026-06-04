@@ -673,6 +673,13 @@
       .turntable { width: 380px; height: 380px; }
       .platter { width: 210px; height: 210px; left: 85px; top: 58px; }
     }
+    @media (max-width: 600px) {
+      .album-grid {
+        grid-template-columns: 1fr;
+        max-width: 160px;
+        margin: 0 auto;
+      }
+    }
   </style>
 </head>
 <body>
