@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ariella's Records</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #1c1c1c;
+      --surface3: #242424;
+      --text: #ede0cf;
+      --muted: #7a6e62;
+      --accent: #c9a96e;
+      --accent2: #a07840;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    header {
+      padding: 2.2rem 3.5rem 2rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      border-bottom: 1px solid #1c1c1c;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    header .sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+    .preview-note {
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: var(--muted);
+      align-self: center;
+      font-style: italic;
+    }
+
+    /* ── PLAYER SECTION ─────────────────────── */
+    .player-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      padding: 3.5rem 3.5rem 3rem;
+    }
+
+    /* ── TURNTABLE ──────────────────────────── */
+    .turntable {
+      flex-shrink: 0;
+      position: relative;
+      width: 480px;
+      height: 460px;
+      background:
+        linear-gradient(170deg,
+          #3d1f0a 0%,
+          #5c2e0e 18%,
+          #3a1a08 36%,
+          #6b3510 52%,
+          #3e1e09 68%,
+          #512610 82%,
+          #2e1508 100%
+        );
+      border-radius: 14px;
+      box-shadow:
+        0 0 0 1px #8b4a1a,
+        0 0 0 2px #2a1006,
+        inset 0 1px 0 rgba(255,200,100,0.12),
+        inset 0 -1px 0 rgba(0,0,0,0.4),
+        0 30px 90px rgba(0,0,0,0.95),
+        0 8px 24px rgba(0,0,0,0.6);
+    }
+
+    /* Wood grain lines */
+    .turntable::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background:
+        repeating-linear-gradient(
+          172deg,
+          transparent 0px,       transparent 9px,
+          rgba(0,0,0,0.18)       9px,        rgba(0,0,0,0.18) 10px,
+          transparent            10px,       transparent 18px,
+          rgba(255,160,60,0.06)  18px,       rgba(255,160,60,0.06) 19px,
+          transparent            19px,       transparent 28px,
+          rgba(0,0,0,0.12)       28px,       rgba(0,0,0,0.12) 29px,
+          transparent            29px,       transparent 40px,
+          rgba(255,140,40,0.04)  40px,       rgba(255,140,40,0.04) 41px
+        );
+      pointer-events: none;
+    }
+
+    /* Gloss coat */
+    .turntable::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background:
+        linear-gradient(160deg,
+          rgba(255,220,160,0.07) 0%,
+          transparent 40%,
+          rgba(0,0,0,0.15) 100%
+        );
+      pointer-events: none;
+    }
+
+    /* Now-playing info */
+    .np-label {
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,210,160,0.55);
+    }
+    .np-title {
+      position: absolute;
+      top: 36px;
+      left: 24px;
+      right: 130px;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: #f5e8d0;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Platter */
+    .platter {
+      position: absolute;
+      left: 106px;
+      top: 72px;
+      width: 268px;
+      height: 268px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #303030 0%, #222 40%, #151515 70%, #0d0d0d 100%);
+      box-shadow:
+        0 6px 28px rgba(0,0,0,0.85),
+        inset 0 0 40px rgba(0,0,0,0.6),
+        0 0 0 2px #1a1a1a;
+    }
+    .platter-mat {
+      position: absolute;
+      inset: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #2a2a2a 0%, #1a1a1a 100%);
+    }
+
+    /* Vinyl on platter */
+    .vinyl-on-platter {
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--lc,#b8965a) 0%, var(--lc,#b8965a) 27%, transparent 27.5%),
+        repeating-radial-gradient(circle at 50% 50%, #0d0d0d 0px, #1c1c1c 1.2px, #0d0d0d 2.4px);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .vinyl-on-platter.visible { opacity: 1; }
+    .vinyl-on-platter.spinning {
+      animation: spin 2.8s linear infinite;
+      animation-play-state: paused;
+    }
+    .vinyl-on-platter.spinning.playing {
+      animation-play-state: running;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .vinyl-hole {
+      position: absolute;
+      width: 8px; height: 8px;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      background: #080808;
+      z-index: 2;
+    }
+    /* Off-center dot so rotation is visually apparent */
+    .vinyl-marker {
+      position: absolute;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    /* Spindle */
+    .spindle {
+      position: absolute;
+      width: 10px; height: 10px;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ccc, #666);
+      z-index: 3;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Tonearm */
+    .tonearm-pivot {
+      position: absolute;
+      right: 52px;
+      top: 62px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #bbb, #555);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+    .tonearm-arm {
+      position: absolute;
+      right: 64px;  /* center of pivot */
+      top: 74px;    /* center of pivot */
+      width: 210px;
+      height: 7px;
+      transform-origin: right center;
+      transform: rotate(-36deg);
+      transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: linear-gradient(to left, #999 0%, #777 30%, #555 70%, #444 100%);
+      border-radius: 3px 1px 1px 3px;
+      z-index: 9;
+    }
+    .tonearm-arm.playing { transform: rotate(2deg); }
+    .tonearm-arm.parked  { transform: rotate(2deg); transition: none; }
+    .tonearm-arm::before {
+      /* headshell */
+      content: '';
+      position: absolute;
+      left: -4px; top: -8px;
+      width: 14px; height: 22px;
+      background: linear-gradient(to bottom, #666, #3a3a3a);
+      border-radius: 2px 2px 5px 5px;
+      transform: rotate(10deg);
+      transform-origin: top center;
+    }
+    .tonearm-arm::after {
+      /* needle */
+      content: '';
+      position: absolute;
+      left: 3px; bottom: -10px;
+      width: 1.5px; height: 11px;
+      background: #bbb;
+      transform: rotate(-5deg);
+    }
+    .tonearm-cw {
+      /* counterweight */
+      position: absolute;
+      right: -22px; top: -9px;
+      width: 22px; height: 22px;
+      border-radius: 3px;
+      background: radial-gradient(circle at 35% 35%, #aaa, #3a3a3a);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      z-index: 11;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      position: absolute;
+      bottom: 80px; left: 24px; right: 24px;
+      height: 2px;
+      background: rgba(255,200,140,0.2);
+      border-radius: 1px;
+      cursor: pointer;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 1px;
+      transition: width 0.1s linear;
+    }
+    .progress-wrap:hover .progress-fill { background: var(--accent2); }
+
+    /* Time display */
+    .time-display {
+      position: absolute;
+      bottom: 87px;
+      right: 24px;
+      font-size: 10px;
+      color: rgba(255,210,160,0.6);
+      letter-spacing: 0.05em;
+    }
+
+    /* Controls */
+    .controls {
+      position: absolute;
+      bottom: 18px; left: 0; right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .ctrl {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,200,140,0.3);
+      color: rgba(255,210,160,0.7);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s, background 0.2s;
+      flex-shrink: 0;
+    }
+    .ctrl:hover { border-color: #e8c070; color: #e8c070; transform: scale(1.05); background: rgba(0,0,0,0.35); }
+    .ctrl:active { transform: scale(0.95); }
+    .ctrl.primary {
+      width: 46px; height: 46px;
+      border-color: #e8c070;
+      color: #e8c070;
+      background: rgba(0,0,0,0.3);
+    }
+    .ctrl.primary:hover { background: rgba(0,0,0,0.45); }
+    .ctrl.stop:hover { border-color: #e07070; color: #e07070; }
+
+    /* Volume */
+    .volume-wrap {
+      position: absolute;
+      right: 20px; bottom: 27px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .volume-wrap svg { color: rgba(255,210,160,0.6); flex-shrink: 0; }
+    input[type=range].vol {
+      -webkit-appearance: none;
+      width: 56px; height: 2px;
+      background: rgba(255,200,140,0.2);
+      border-radius: 1px;
+      outline: none;
+    }
+    input[type=range].vol::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    /* ── TRACKLIST ───────────────────────────── */
+    .tracklist-panel {
+      width: 340px;
+      min-height: 460px;
+      position: relative;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .tl-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      inset: 0;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .tl-empty.visible { opacity: 1; }
+    .tl-empty-disc {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle, #2a2a2a 0px, #2a2a2a 3px, #1a1a1a 3px, #1a1a1a 6px);
+      border: 1px solid #2a2a2a;
+      position: relative;
+    }
+    .tl-empty-disc::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid #333;
+    }
+    .tracklist-panel .tl-header,
+    .tracklist-panel .track-list,
+    .tracklist-panel .tl-open {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .tracklist-panel.visible .tl-header,
+    .tracklist-panel.visible .track-list,
+    .tracklist-panel.visible .tl-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .tracklist-panel.visible .tl-empty { opacity: 0; pointer-events: none; }
+    .tl-art {
+      width: 60px; height: 60px;
+      border-radius: 3px;
+      object-fit: cover;
+      background: var(--surface2);
+      flex-shrink: 0;
+    }
+    .tl-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .tl-header-text {}
+    .tl-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .tl-header p {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .tl-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 4px;
+      opacity: 0.7;
+    }
+    .track-list {
+      list-style: none;
+      max-height: 310px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .track-list::-webkit-scrollbar { width: 3px; }
+    .track-list::-webkit-scrollbar-track { background: transparent; }
+    .track-list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+    .track-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .track-item:hover { background: var(--surface2); }
+    .track-item.active { background: var(--surface2); }
+    .track-item.active .track-num,
+    .track-item.active .track-name { color: var(--accent); }
+    .track-num { width: 22px; text-align: right; font-size: 0.72rem; color: var(--muted); flex-shrink: 0; }
+    .track-name { flex: 1; font-size: 0.83rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .track-dur { font-size: 0.7rem; color: var(--muted); flex-shrink: 0; }
+    .tl-open {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      text-align: center;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .tl-open:hover { color: var(--accent); }
+
+    /* ── ALBUM GRID ─────────────────────────── */
+    .grid-section {
+      padding: 2.5rem 3.5rem 5rem;
+      border-top: 1px solid #161616;
+    }
+    .grid-section > h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem 1.6rem;
+    }
+
+    .album-card {
+      position: relative;
+      cursor: pointer;
+      transform-origin: center bottom;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .album-card:hover {
+      transform: rotate(3deg) translateY(-5px);
+      z-index: 20;
+    }
+    .album-card.active {
+      transform: scale(0.96);
+    }
+
+    /* Vinyl peeking from behind the sleeve */
+    .sleeve-wrap {
+      position: relative;
+    }
+    .vinyl-peek {
+      position: absolute;
+      width: 90%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--lc, #b8965a) 0%, var(--lc, #b8965a) 27%, transparent 27.5%),
+        repeating-radial-gradient(circle at 50% 50%, #0d0d0d 0px, #1c1c1c 1.2px, #0d0d0d 2.4px);
+      right: -22%;
+      top: 5%;
+      z-index: 0;
+      opacity: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+      transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+    .album-card:hover .vinyl-peek {
+      right: -36%;
+      opacity: 1;
+    }
+    .album-cover-wrap {
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--surface2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    .album-art {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .album-art.loaded { opacity: 1; }
+    .art-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      animation: shimmer 1.8s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 0.9; }
+    }
+    .art-shimmer.hidden { display: none; }
+
+    /* Active ring on card */
+    .album-card.active .album-cover-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--accent);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .album-info { margin-top: 9px; }
+    .album-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+    .album-artist {
+      font-size: 0.7rem;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* Tooltip */
+    .album-tooltip {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 10, 8, 0.97);
+      border: 1px solid #282420;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.74rem;
+      color: var(--text);
+      white-space: normal;
+      width: 200px;
+      text-align: center;
+      line-height: 1.55;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 100;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.8);
+    }
+    .album-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #282420;
+    }
+    .album-card:hover .album-tooltip { opacity: 1; }
+
+    /* ── FLYING VINYL ────────────────────────── */
+    .flying-vinyl {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+      transition: left 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+                  top 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+                  width 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+                  height 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .album-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 960px) {
+      .player-section { flex-direction: column; gap: 2rem; }
+      .album-grid { grid-template-columns: repeat(3, 1fr); }
+      .turntable { width: 380px; height: 380px; }
+      .platter { width: 210px; height: 210px; left: 85px; top: 58px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ariella's Records</h1>
+  <span class="sub">a digitized version of my favorite albums</span>
+</header>
+
+<section class="player-section">
+  <!-- ── Turntable ── -->
+  <div class="turntable" id="turntable">
+    <div class="np-label" id="npLabel">select an album</div>
+    <div class="np-title" id="npTitle">—</div>
+
+    <div class="platter" id="platter">
+      <div class="platter-mat"></div>
+      <div class="vinyl-on-platter" id="vinylOnPlatter">
+        <div class="vinyl-marker"></div>
+        <div class="vinyl-hole"></div>
+      </div>
+      <div class="spindle"></div>
+    </div>
+
+    <!-- Tonearm -->
+    <div class="tonearm-pivot">
+      <div class="tonearm-arm" id="tonearm">
+        <div class="tonearm-cw"></div>
+      </div>
+    </div>
+
+
+
+    <!-- Progress bar -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="time-display" id="timeDisplay"></div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="ctrl" id="prevBtn" title="Previous track">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+      </button>
+      <button class="ctrl primary" id="playPauseBtn" title="Play / Pause">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" id="ppIcon"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="ctrl" id="nextBtn" title="Next track">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM14 6v12h2V6z"/></svg>
+      </button>
+      <button class="ctrl stop" id="stopBtn" title="Stop & return">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
+      </button>
+      <div class="volume-wrap">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        <input type="range" class="vol" id="volSlider" min="0" max="1" step="0.02" value="0.8" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Tracklist ── -->
+  <div class="tracklist-panel" id="tracklistPanel">
+    <div class="tl-empty visible" id="tlEmpty">
+      <div class="tl-empty-disc"></div>
+      <span>select an album to see the tracklist</span>
+    </div>
+    <div class="tl-header">
+      <img class="tl-art" id="tlArt" src="" alt="" />
+      <div class="tl-header-text">
+        <h2 id="tlTitle">—</h2>
+        <p id="tlArtist">—</p>
+        <p class="tl-meta" id="tlMeta"></p>
+      </div>
+    </div>
+    <ul class="track-list" id="trackList"></ul>
+    <a class="tl-open" id="tlSpotify" href="#" target="_blank" rel="noopener">open full album on Spotify ↗</a>
+  </div>
+</section>
+
+<!-- ── Album Grid ── -->
+<section class="grid-section">
+  <h2>the collection</h2>
+  <div class="album-grid" id="albumGrid"></div>
+</section>
+
+<!-- Flying vinyl element -->
+<div class="flying-vinyl" id="flyingVinyl"></div>
+
+<audio id="audio" preload="none"></audio>
+
+<script>
+const ALBUMS = [
+  { artist:'Ariana Grande',       title:'Yours Truly',                              labelColor:'#c47890', note:'the first album i listened to front to back. was obsessed with her vocals. i still know the lyrics to every song and it\'s my favorite album from her to this day',                          spotifySearch:'ariana+grande+yours+truly' },
+  { artist:'Jeff Buckley',         title:'Grace',                                    labelColor:'#6a90c4', note:'words can\'t describe how much this album means to me. his lyrics, vocals, and overall presence inspired me. i would spend so much time trying to mimic his lyrics. this is the greatest album ever created for me',             spotifySearch:'jeff+buckley+grace' },
+  { artist:'Buena Vista Social Club', title:'Buena Vista Social Club',               labelColor:'#c4a050', note:'learned about this album when i was living in mexico and have been obsessed ever since. a legendary cuban album loaded with classics.',                               spotifySearch:'buena+vista+social+club' },
+  { artist:'La Maxima 79',         title:'#Resilienza',                              labelColor:'#e05050', note:'this album came out when i was living in miami. i was obsessed with almost every song that played and have fond memories dancing to them in ball & chain.',                                                  spotifySearch:'la+maxima+79+resilienza' },
+  { artist:'Alexander Abreu',      title:'Cantor del Pueblo',                        labelColor:'#50a0a0', note:'my favorite salsa artist of all time. would run to the dance floor whenever tres dias played.',                                      spotifySearch:'alexander+abreu+cantor+del+pueblo' },
+  { artist:'Karol G',              title:'Tropicoqueta',                             labelColor:'#c050c0', note:'i love karol g and every single song on this album',                                   spotifySearch:'karol+g+tropicoqueta',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1e/39/f5/1e39f58c-e5c1-6431-d6ed-d6c32e29d63f/25UMGIM79234.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1e/39/f5/1e39f58c-e5c1-6431-d6ed-d6c32e29d63f/25UMGIM79234.rgb.jpg/200x200bb.jpg', collectionId:1819544141, artistName:'KAROL G', collectionName:'Tropicoqueta', year:2025 },
+    staticTracks: [
+      { trackNumber:1,  trackName:'La Reina Presenta',          trackTimeMillis:54320,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7f/c8/69/7fc86939-2422-0896-8b25-e65901cfd869/mzaf_16187887447309748554.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'Ivonny Bonita',              trackTimeMillis:222458, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d8/d1/a1/d8d1a18f-be63-52bd-d28c-122cfef68fd7/mzaf_11009813716987700572.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'Papasito',                   trackTimeMillis:167181, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/69/c3/5a/69c35a04-8137-3af0-ad46-873219467169/mzaf_7841246828143218124.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'LATINA FOREVA',              trackTimeMillis:159523, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2c/d1/5f/2cd15feb-dd84-a6d5-4130-29027fa645fd/mzaf_577645750513519219.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'Dile Luna',                  trackTimeMillis:187509, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/54/88/a0548829-cfd2-431f-2e52-769e41a3466d/mzaf_17990659419634889696.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'Cuando Me Muera Te Olvido',  trackTimeMillis:154817, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/2d/8e/322d8e62-fe2a-18e7-34e6-3e6010c3c172/mzaf_15725809412725753782.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'Coleccionando Heridas',      trackTimeMillis:204795, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/be/a9/45/bea945d4-a56f-63fc-8a11-75e46a0a4d25/mzaf_17439990092066596672.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Un Gatito Me Llamó',         trackTimeMillis:122198, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/e7/40/5be74018-2ee8-6449-b4b8-e8b74fbbae56/mzaf_18026435831567518073.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'Amiga Mía',                  trackTimeMillis:224415, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/eb/50/db/eb50db77-4dc4-9274-e68d-80663450bf96/mzaf_16469356694756760095.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'Bandida Entrenada',          trackTimeMillis:135811, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/70/50/55/705055f8-3919-b059-94e0-81dbe7f2b547/mzaf_6654703722211560582.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'Ese Hombre Es Malo',         trackTimeMillis:217370, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1a/ec/cb/1aeccb21-7132-2af9-56b0-442b8071ccc9/mzaf_4122229771510170689.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:'A Su Boca La Amo (Interlude)',trackTimeMillis:76678, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/b9/12/12b912f6-0d9d-3b26-1e2d-274f503e6cd7/mzaf_9790188639143220976.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:'Verano Rosa',                trackTimeMillis:210047, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/68/be/24/68be2410-32d1-67b0-1da2-11f2dc217db5/mzaf_6506233517946117627.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'No Puedo Vivir Sin Él',      trackTimeMillis:218271, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/41/eb/f7/41ebf7bd-edde-f8b8-c44f-cd9137c622eb/mzaf_6651460700726905122.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'Tu Perfume',                 trackTimeMillis:183616, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/41/fc/8e41fcae-1e6e-747f-d00b-2a39395b92ae/mzaf_4467303377564094910.plus.aac.p.m4a' },
+      { trackNumber:16, trackName:'FKN Movie',                  trackTimeMillis:179495, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2b/75/ea/2b75ea9d-f90e-2202-f52e-421ce1abcdf8/mzaf_15632103661497377279.plus.aac.p.m4a' },
+      { trackNumber:17, trackName:'Se Puso Linda',              trackTimeMillis:146341, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/2e/94/392e94aa-df17-7122-1b96-689e9df8ff48/mzaf_14848710467653725681.plus.aac.p.m4a' },
+      { trackNumber:18, trackName:'Viajando Por El Mundo',      trackTimeMillis:268076, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c6/7d/f3/c67df3f8-3fd9-2f98-ebbc-dbfd4927e799/mzaf_3673868693122269099.plus.aac.p.m4a' },
+      { trackNumber:19, trackName:'Si Antes Te Hubiera Conocido',trackTimeMillis:195824,previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/29/d1/a9/29d1a95b-fa0e-0287-caf2-4cb9461a62f8/mzaf_14777216683200543423.plus.aac.p.m4a' },
+      { trackNumber:20, trackName:'Tropicoqueta',               trackTimeMillis:155682, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7f/f2/d4/7ff2d49c-7247-6819-1a86-00a887c39f0c/mzaf_13494755147173329363.plus.aac.p.m4a' },
+    ]
+  },
+  { artist:'Ariana Grande',        title:'My Everything',                            labelColor:'#c4788a', note:'i wanted to sing like ariana so bad and would use this album to practice. problem was my jam',                            spotifySearch:'ariana+grande+my+everything' },
+  { artist:'Ariana Grande',        title:'Positions',                                labelColor:'#9080c4', note:'another banger from ariana. i always associate this album with the pandemic.',                        spotifySearch:'ariana+grande+positions' },
+  { artist:'Romeo Santos',         title:'Formula, Vol. 2',                          labelColor:'#c04040', note:'one of the first bachata albums i ever listened to. romeo was EVERYWHERE during this time.',                           spotifySearch:'romeo+santos+formula+vol+2' },
+  { artist:'Alexander Abreu',      title:'Pasaporte',                                labelColor:'#50a050', note:'i swear this man never misses with his albums. this one is another one of my faves loaded with songs that make you want to dance.',                                   spotifySearch:'alexander+abreu+pasaporte' },
+  { artist:'Wicked Movie Cast',    title:'Wicked: The Soundtrack',                   labelColor:'#60c060', note:'read the book when I was a kid and have been obsessed with the musical. cynthia is incredible as elphaba',                             spotifySearch:'wicked+soundtrack+2024' },
+  { artist:'Miss Saigon Cast',     title:'Miss Saigon: The Definitive Live Recording', labelColor:'#c0a050', note:'this musical made me cry.',               spotifySearch:'miss+saigon+definitive+live', itunesQuery:'Miss Saigon Original London Cast Recording' },
+  { artist:'Laufey',               title:'Snow White',                               labelColor:'#f0d090', note:'laufey is a newer find but she\'s gotten me into jazz music.',                                     spotifySearch:'laufey+snow+white' },
+  { artist:'Bad Bunny',            title:'Debí Tirar Más Fotos',                     labelColor:'#e0c040', note:'no tengo palabras. a masterpiece album.',           spotifySearch:'bad+bunny+debi+tirar+mas+fotos',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/200x200bb.jpg', collectionId:1787022393, artistName:'Bad Bunny', collectionName:'DeBÍ TiRAR MáS FOToS', year:2025 },
+    staticTracks: [
+      { trackNumber:1,  trackName:'NUEVAYoL',                  trackTimeMillis:184000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/97/55/2e97555a-1ed3-9e07-de57-07e1213186c9/mzaf_7594924455925081680.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'VOY A LLeVARTE PA PR',      trackTimeMillis:156000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/04/a3/b6/04a3b623-a232-494a-2edf-80fb0b2eb426/mzaf_4844324965502281486.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'BAILE INoLVIDABLE',         trackTimeMillis:368000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3a/ea/38/3aea38e3-106b-db96-7beb-5d2bc02bdf70/mzaf_17568275540135957611.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'PERFuMITO NUEVO',           trackTimeMillis:201000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/79/65/40/79654042-6486-a0dd-8421-69395831066b/mzaf_9104539868690068618.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'WELTiTA',                   trackTimeMillis:188000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/38/20/fa382077-6038-507d-d043-054d8b716a2a/mzaf_9850027962155209593.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'VeLDÁ',                     trackTimeMillis:235000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/12/88/5d128874-630c-6a49-8338-1b0b5d927e6a/mzaf_5594290469332929228.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'EL CLúB',                   trackTimeMillis:223000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/58/03/f1/5803f105-264c-82f1-9ae6-38d19cf85507/mzaf_1750694838330927439.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'KETU TeCRÉ',                trackTimeMillis:251000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/b4/a3/6bb4a33e-ae88-ed30-d4ef-5ab83391dfd6/mzaf_13948523974848459571.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'BOKeTE',                    trackTimeMillis:216000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4f/d2/1a/4fd21ae4-6814-6ca2-ef56-4b8fc87cc319/mzaf_4710589038482095505.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'KLOuFRENS',                 trackTimeMillis:199000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/7f/0e/157f0e07-bf0c-9b20-a280-934068e7e194/mzaf_17726143982854325993.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'TURiSTA',                   trackTimeMillis:190000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/25/d3/06/25d306b1-5945-28fd-4929-01989d2167e8/mzaf_5509319358451232894.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:'CAFé CON RON',              trackTimeMillis:228000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/38/8f/57388fad-59e3-e11f-4147-500341594b86/mzaf_6984117293309341445.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:'PIToRRO DE COCO',           trackTimeMillis:207000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/70/0b/44700b1e-49bb-cf42-556c-9a86a2ad6d69/mzaf_9113194764678012750.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'LO QUE LE PASÓ A HAWAii',  trackTimeMillis:229000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/05/26/130526d9-4ce5-4871-3858-b2ac79773028/mzaf_16078866261354513181.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'EoO',                       trackTimeMillis:205000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/b7/ad/bbb7adc0-e19a-de2c-f5fa-7aa7597c018f/mzaf_3830528517982749933.plus.aac.p.m4a' },
+      { trackNumber:16, trackName:'DtMF',                      trackTimeMillis:237000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d9/ea/9c/d9ea9c1c-4b31-c448-0882-f9bae822e1fd/mzaf_3206041669449949150.plus.aac.p.m4a' },
+      { trackNumber:17, trackName:'LA MuDANZA',                trackTimeMillis:213000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0a/97/81/0a9781e6-ed76-0a9c-74c0-9835cbddd543/mzaf_15456814033664478187.plus.aac.p.m4a' },
+    ]
+  },
+  { artist:'Camilo',               title:'Tres',                                     labelColor:'#e09050', note:'love camilo\'s artistry and this was a cute little album.',                     spotifySearch:'camilo+tres+album' },
+  { artist:'Jhené Aiko',           title:'Chilombo',                                 labelColor:'#9050c0', note:'her live performance of this album is truly healing',                       spotifySearch:'jhene+aiko+chilombo' },
+  { artist:'Les Misérables Cast',  title:'Les Misérables: The Motion Picture Soundtrack', labelColor:'#5050a0', note:'was roasted by my sister because of how many times i\'ve seen this movie. loooove',               spotifySearch:'les+miserables+motion+picture+soundtrack' },
+  { artist:'Vicente García',       title:'A la Mar',                                 labelColor:'#50a0c0', note:'his music reminds me of a warm beach. please listen to the piano version of te sone, it\'s life changing',                 spotifySearch:'vicente+garcia+a+la+mar' },
+  { artist:'Selena',               title:'Entre a Mi Mundo',                         labelColor:'#e05090', note:"que mas puedo decir sobre selena. she was the first latin artist i listened to. i fondly remember singing como la flor for my school's talent show",                              spotifySearch:'selena+entre+a+mi+mundo',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/7b/1c/6c7b1c70-c570-b87b-74ab-a47541acb4df/15UMGIM04874.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/7b/1c/6c7b1c70-c570-b87b-74ab-a47541acb4df/15UMGIM04874.rgb.jpg/200x200bb.jpg', collectionId:1443160824, artistName:'Selena', collectionName:'Entre a Mi Mundo', year:1992 },
+    staticTracks: [
+      { trackNumber:1,  trackName:'Si la Quieres',                                      trackTimeMillis:193000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fd/93/f1/fd93f1b7-40d5-1493-77a1-b27a55d2e737/mzaf_17129027472620082761.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'Como la Flor (Remastered Version)',                  trackTimeMillis:186000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b4/eb/40/b4eb40e6-927a-d191-f693-9ddfa0e50249/mzaf_9628877989749552541.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'Yo Te Sigo Queriendo',                               trackTimeMillis:191000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9f/43/68/9f436813-0b9a-8bc0-2981-414fb5950b2d/mzaf_3819286660578025222.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'Que Creias',                                         trackTimeMillis:214000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/57/dc/d7/57dcd7c5-94d7-c13f-8e1c-9cea5ea05b92/mzaf_11976019012032945811.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'Las Cadenas',                                        trackTimeMillis:194000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a1/84/00/a18400e6-3bc3-9132-3db2-c6ca2a3ee73d/mzaf_2011246030926029625.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'Vuelve a Mi',                                        trackTimeMillis:219000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f3/d4/8d/f3d48d33-ccec-4224-5992-d99412809b65/mzaf_10539107498956288917.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'La Carcacha',                                        trackTimeMillis:251000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/52/9f/a0529f09-bf78-c02d-3161-0725c72249e3/mzaf_428763075778387902.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Siempre Estoy Pensando En Ti',                       trackTimeMillis:184000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/02/d9/c3/02d9c3a0-448b-dc85-c6ec-69f4cad97840/mzaf_10231544241277788631.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'Missing My Baby',                                    trackTimeMillis:232000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4a/71/b9/4a71b91e-8acf-351d-f5b8-67299ac4900c/mzaf_12006201794792890687.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'Ámame',                                              trackTimeMillis:221000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/e4/5c/eee45cb4-8775-91f5-0712-a6dc55bc4a88/mzaf_13748013808290541364.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'Buenos Amigos (feat. Alvaro Torres)',                trackTimeMillis:285000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/72/5a/10725a94-1c42-76eb-7dda-74f804ee2d63/mzaf_7069576567676851598.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:'Where Did the Feeling Go?',                          trackTimeMillis:224000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/e7/1b/24e71bec-2eaf-6b57-276d-721533d5dee7/mzaf_15075150801400607959.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:'Spoken Liner Notes by the Family (Entre a Mi Mundo)',trackTimeMillis:844000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/02/8a/fc/028afc0a-ed08-d201-9340-a276cec67b3f/mzaf_13423572566466917137.plus.aac.p.m4a' },
+    ]
+  },
+  { artist:'Ariana Grande',        title:'Sweetener',                                labelColor:'#c0a0c4', note:"a cute little pop album. if you can't tell, i love all of her music.",        spotifySearch:'ariana+grande+sweetener' },
+  { artist:'ROSALÍA',             title:'LUX',                                         labelColor:'#d0406060', note:"one of the most interesting albums i've listened to. rosalia is the queen of experimenting with new sounds",              spotifySearch:'rosalia+lux+album',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/200x200bb.jpg', collectionId:1848167516, artistName:'ROSALÍA', collectionName:'LUX', year:2025 },
+    staticTracks: [
+      { trackNumber:1,  trackName:'Sexo, Violencia y Llantas',   trackTimeMillis:140760, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/98/7c/94987cb6-3ca1-542a-e208-f0aa29ae2e31/mzaf_16260452829243281393.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'Reliquia',                    trackTimeMillis:230240, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/92/ed/09/92ed09fd-e2d0-fdf3-3633-adc2ca8fd75b/mzaf_6242627331043325594.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'Divinize',                    trackTimeMillis:243240, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2c/a8/cc/2ca8cc2c-2e29-94a3-b728-ed2d2fdde589/mzaf_11590013548650109369.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'Porcelana',                   trackTimeMillis:248093, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d3/46/16/d34616c7-26f4-f940-df4b-eb8612a9e743/mzaf_16188285126132118815.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'Mio Cristo Piange Diamanti',  trackTimeMillis:269680, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/dc/fd/f4/dcfdf431-fe40-b839-1189-930eab0131f2/mzaf_4311869464812822223.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'Berghain',                    trackTimeMillis:178853, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/97/fc/e9/97fce9c4-feb2-ab57-2de4-5898a770284e/mzaf_8647401501773731547.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'La Perla',                    trackTimeMillis:195547, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/37/fb/8c/37fb8c18-2dcf-4b58-0700-1f7aee6a9477/mzaf_719973323638252032.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Mundo Nuevo',                 trackTimeMillis:140373, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/71/ba/9e71ba96-f149-dcf5-c82e-5bc5b029ce9a/mzaf_4507195229409816267.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'De Madrugá',                  trackTimeMillis:104400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/e9/de/94e9deeb-d840-6ac7-2d7e-27c1b5bb936d/mzaf_1536741442224013160.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'Dios Es Un Stalker',          trackTimeMillis:130507, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/d7/7d/8fd77df3-a2bc-2fc0-89fa-1f51b7989d56/mzaf_15509108202613806967.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'La Yugular',                  trackTimeMillis:258613, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e3/14/8e/e3148ed7-937e-de99-e49a-2fca62d61f81/mzaf_15769678938995126721.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:'Sauvignon Blanc',             trackTimeMillis:162533, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/31/9b/c1319bbb-c1c8-3306-85fc-f71d37cba6d1/mzaf_13910159643105581982.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:'La Rumba Del Perdón',         trackTimeMillis:251987, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/a1/17/48a11743-9e8f-2bba-7dda-802eae395c51/mzaf_4883992666434171328.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'Memória',                     trackTimeMillis:225400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/18/7b/d2/187bd2cd-524a-27c6-adc4-85c6d13e6f78/mzaf_11528971165904258656.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'Magnolias',                   trackTimeMillis:194813, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/65/c2/c165c2b7-e47f-2cde-6f75-5db1896251c3/mzaf_6805775802281991955.plus.aac.p.m4a' },
+    ]
+  },
+  { artist:'Panic! At the Disco', title:"A Fever You Can't Sweat Out",              labelColor:'#7060b0', note:'the peak of my emo era',  spotifySearch:'panic+at+the+disco+fever+you+cant+sweat+out',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/4b/88/474b88c7-e37e-0bb5-e2f8-45f7e80ec4ce/645131207760.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/4b/88/474b88c7-e37e-0bb5-e2f8-45f7e80ec4ce/645131207760.jpg/200x200bb.jpg', collectionId:80456435, artistName:'Panic! At the Disco', collectionName:"A Fever You Can't Sweat Out", year:2005 },
+    staticTracks: [
+      { trackNumber:1,  trackName:'Introduction',                                                                            trackTimeMillis:36973,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9a/06/7b/9a067b7f-d19e-1e28-e996-e7212cfe2403/mzaf_16086918351727025325.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'The Only Difference Between Martyrdom and Suicide Is Press Coverage',                     trackTimeMillis:174867, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/49/b4/a5/49b4a58a-6bb2-672e-1f28-cfe33f7a47df/mzaf_2617621402025091194.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'London Beckoned Songs About Money Written By Machines',                                   trackTimeMillis:203613, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/27/e2/b0/27e2b05f-b0ca-9fdc-31a5-1724a3cf6d89/mzaf_3252805792135688153.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'Nails for Breakfast, Tacks for Snacks',                                                   trackTimeMillis:203840, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/57/16/b6/5716b64c-eb5c-53f6-d6f5-f05cfc1d70f0/mzaf_16152958600466651474.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'Camisado',                                                                                trackTimeMillis:191867, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/77/bc/b9/77bcb98a-440f-897c-bc17-41936b8e436d/mzaf_9878959305869910829.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'Time to Dance',                                                                           trackTimeMillis:202027, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/be/81/71/be8171c7-483b-803d-a2f4-1284bdb009c4/mzaf_12558703348375074784.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:"Lying Is the Most Fun a Girl Can Have Without Taking Her Clothes Off",                    trackTimeMillis:200227, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/35/25/3b/35253b8a-29eb-4d20-ab24-720591958fac/mzaf_497494135824201783.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Intermission',                                                                            trackTimeMillis:155507, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1a/4b/76/1a4b7680-97c1-4fe7-19d3-100396572f32/mzaf_15853467882769790544.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:"But It's Better If You Do",                                                               trackTimeMillis:205752, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ec/04/0f/ec040f00-df6d-3b57-18e2-ef9200abcf8b/mzaf_8192117480235309931.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'I Write Sins Not Tragedies',                                                              trackTimeMillis:186635, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c5/3a/34/c53a346a-06c2-b0a7-f948-8e9fbbf5b3c6/mzaf_6875536064108299639.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'I Constantly Thank God for Esteban',                                                      trackTimeMillis:210253, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/28/09/2b/28092b62-97f7-e3a0-48e9-4ec9b653299d/mzaf_301232417875657930.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:"There's a Good Reason These Tables Are Numbered Honey, You Just Haven't Thought of It Yet", trackTimeMillis:196653, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/dd/64/68/dd646887-278a-b987-0f29-df78497ab3a6/mzaf_4800558564422266594.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:"Build God, Then We'll Talk",                                                              trackTimeMillis:220720, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/76/6a/38/766a3815-9d8f-9c1d-cbf8-b456a2241179/mzaf_17254156213766932561.plus.aac.p.m4a' },
+    ]
+  },
+];
+
+// Runtime state
+let albumMeta   = new Array(ALBUMS.length).fill(null); // {artUrl, collectionId, artistName}
+let currentIdx  = null;
+let tracks      = [];
+let trackIdx    = 0;
+let isPlaying   = false;
+
+const audio           = document.getElementById('audio');
+const flyingVinyl     = document.getElementById('flyingVinyl');
+const tonearm         = document.getElementById('tonearm');
+const vinylOnPlatter  = document.getElementById('vinylOnPlatter');
+const tracklistPanel  = document.getElementById('tracklistPanel');
+const tlEmpty         = document.getElementById('tlEmpty');
+const trackList       = document.getElementById('trackList');
+const npLabel         = document.getElementById('npLabel');
+const npTitle         = document.getElementById('npTitle');
+const tlTitle         = document.getElementById('tlTitle');
+const tlArtist        = document.getElementById('tlArtist');
+const tlMeta          = document.getElementById('tlMeta');
+const tlArt           = document.getElementById('tlArt');
+const tlSpotify       = document.getElementById('tlSpotify');
+const ppIcon          = document.getElementById('ppIcon');
+const progressFill    = document.getElementById('progressFill');
+const timeDisplay     = document.getElementById('timeDisplay');
+const volSlider       = document.getElementById('volSlider');
+
+// ── Fetch album art + collectionId from iTunes ──────────────────────────────
+async function fetchAlbumMeta(idx) {
+  const a = ALBUMS[idx];
+  if (a.staticMeta) return a.staticMeta;
+  try {
+    let res;
+    if (a.itunesId) {
+      const r = await fetch(`https://itunes.apple.com/lookup?id=${a.itunesId}&country=us`);
+      const d = await r.json();
+      res = d.results?.find(r => r.collectionId == a.itunesId) || d.results?.[0];
+    } else {
+      const q = encodeURIComponent(a.itunesQuery || `${a.artist} ${a.title}`);
+      const r = await fetch(`https://itunes.apple.com/search?term=${q}&entity=album&limit=1&media=music`);
+      const d = await r.json();
+      res = d.results?.[0];
+    }
+    if (res) {
+      const baseArt = (res.artworkUrl100 || res.artworkUrl60 || '').replace(/\d+x\d+bb/, '600x600bb');
+      const smallArt = (res.artworkUrl100 || res.artworkUrl60 || '').replace(/\d+x\d+bb/, '200x200bb');
+      return {
+        artUrl: baseArt,
+        artSmall: smallArt,
+        collectionId: res.collectionId || a.itunesId,
+        artistName: res.artistName,
+        collectionName: res.collectionName,
+        year: res.releaseDate ? new Date(res.releaseDate).getFullYear() : null,
+      };
+    }
+  } catch {}
+  return null;
+}
+
+// ── Fetch tracklist ──────────────────────────────────────────────────────────
+async function fetchTracks(collectionId) {
+  try {
+    const r = await fetch(`https://itunes.apple.com/lookup?id=${collectionId}&entity=song&country=us`);
+    const d = await r.json();
+    return (d.results || [])
+      .filter(t => t.wrapperType === 'track' || (t.kind === 'song' && t.trackName))
+      .sort((a, b) => (a.discNumber - b.discNumber) || (a.trackNumber - b.trackNumber));
+  } catch {}
+  return [];
+}
+
+// ── Vinyl CSS background ─────────────────────────────────────────────────────
+function vinylBg(labelColor) {
+  return `
+    radial-gradient(circle at center, ${labelColor} 0%, ${labelColor} 27%, transparent 27.5%),
+    repeating-radial-gradient(circle at 50% 50%, #0d0d0d 0px, #1c1c1c 1.2px, #0d0d0d 2.4px)
+  `;
+}
+
+// ── Build album grid ─────────────────────────────────────────────────────────
+function buildGrid() {
+  const grid = document.getElementById('albumGrid');
+  ALBUMS.forEach((a, i) => {
+    const card = document.createElement('div');
+    card.className = 'album-card';
+    card.dataset.i = i;
+    card.innerHTML = `
+      <div class="sleeve-wrap">
+        <div class="vinyl-peek" style="--lc:${a.labelColor}"></div>
+        <div class="album-cover-wrap">
+          <div class="art-shimmer" id="shim-${i}"></div>
+          <img class="album-art" id="art-${i}" alt="${a.title}" />
+        </div>
+      </div>
+      <div class="album-info">
+        <div class="album-title">${a.title}</div>
+        <div class="album-artist">${a.artist}</div>
+      </div>
+      <div class="album-tooltip">${a.note}</div>
+    `;
+    card.addEventListener('click', () => selectAlbum(i));
+    grid.appendChild(card);
+
+    // Load art asynchronously
+    fetchAlbumMeta(i).then(meta => {
+      if (!meta) return;
+      albumMeta[i] = meta;
+      const img = document.getElementById(`art-${i}`);
+      const shim = document.getElementById(`shim-${i}`);
+      img.src = meta.artUrl;
+      img.onload = () => { img.classList.add('loaded'); shim.classList.add('hidden'); };
+      img.onerror = () => { shim.classList.add('hidden'); };
+    });
+  });
+}
+
+// ── Select and play an album ─────────────────────────────────────────────────
+async function selectAlbum(idx) {
+  if (currentIdx === idx) return;
+
+  // Reset previous active card
+  if (currentIdx !== null) {
+    document.querySelector(`.album-card[data-i="${currentIdx}"]`).classList.remove('active');
+  }
+
+  currentIdx = idx;
+  const album = ALBUMS[idx];
+  const card = document.querySelector(`.album-card[data-i="${idx}"]`);
+  card.classList.add('active');
+
+  // Reset vinyl spin / tonearm while we animate
+  vinylOnPlatter.classList.remove('spinning', 'playing');
+  tonearm.classList.remove('playing', 'parked');
+
+  // ── Flying vinyl animation ──
+  await flyVinylToPlayer(card, album.labelColor);
+
+  // ── Set vinyl color on platter ──
+  vinylOnPlatter.style.background = vinylBg(album.labelColor);
+  vinylOnPlatter.classList.add('visible');
+
+  // ── Drop needle ──
+  setTimeout(() => {
+    tonearm.classList.add('playing');
+    setTimeout(() => { vinylOnPlatter.classList.add('spinning', 'playing'); }, 600);
+  }, 200);
+
+  // ── Update labels ──
+  npLabel.textContent = 'now playing';
+  npTitle.textContent = `${album.artist} — ${album.title}`;
+
+  // ── Tracklist panel ──
+  tlTitle.textContent = album.title;
+  tlArtist.textContent = album.artist;
+  tlSpotify.href = `https://open.spotify.com/search/${album.spotifySearch}`;
+  tracklistPanel.classList.add('visible');
+  tlEmpty.classList.remove('visible');
+
+  // Update small art in tracklist header if available
+  if (albumMeta[idx]) {
+    tlArt.src = albumMeta[idx].artSmall || albumMeta[idx].artUrl;
+  } else {
+    // Try loading meta if not yet loaded
+    fetchAlbumMeta(idx).then(meta => {
+      if (meta) { albumMeta[idx] = meta; tlArt.src = meta.artSmall; }
+    });
+  }
+
+  // ── Fetch & play tracks ──
+  tracks = [];
+  trackIdx = 0;
+  trackList.innerHTML = '<li style="padding:10px 10px;font-size:0.75rem;color:var(--muted);font-style:italic;">loading tracks…</li>';
+
+  if (album.staticTracks) {
+    tracks = album.staticTracks;
+    trackIdx = 0;
+    renderTrackList();
+    if (tracks.length) playTrack(0);
+    const year = album.staticMeta?.year;
+    tlMeta.textContent = [year, `${tracks.length} tracks`].filter(Boolean).join(' · ');
+  } else {
+    const meta = albumMeta[idx] || await fetchAlbumMeta(idx);
+    if (meta) {
+      albumMeta[idx] = meta;
+      const fetched = await fetchTracks(meta.collectionId);
+      tracks = fetched;
+      trackIdx = 0;
+      renderTrackList();
+      if (tracks.length) playTrack(0);
+      tlMeta.textContent = [meta.year, `${tracks.length} tracks`].filter(Boolean).join(' · ');
+    } else {
+      trackList.innerHTML = '<li style="padding:10px;font-size:0.75rem;color:var(--muted);font-style:italic;">tracks unavailable</li>';
+      tlMeta.textContent = '';
+    }
+  }
+}
+
+// ── Render tracklist ─────────────────────────────────────────────────────────
+function renderTrackList() {
+  trackList.innerHTML = '';
+  tracks.forEach((t, i) => {
+    const li = document.createElement('li');
+    li.className = 'track-item' + (i === trackIdx ? ' active' : '');
+    const ms = t.trackTimeMillis || 0;
+    const m = Math.floor(ms / 60000);
+    const s = Math.floor((ms % 60000) / 1000).toString().padStart(2, '0');
+    li.innerHTML = `
+      <span class="track-num">${t.trackNumber}</span>
+      <span class="track-name">${t.trackName}</span>
+      <span class="track-dur">${ms ? `${m}:${s}` : '—'}</span>
+    `;
+    li.addEventListener('click', () => { trackIdx = i; playTrack(i); renderTrackList(); });
+    trackList.appendChild(li);
+  });
+}
+
+// ── Play a specific track ────────────────────────────────────────────────────
+function playTrack(i) {
+  const t = tracks[i];
+  if (!t?.previewUrl) return;
+  audio.src = t.previewUrl;
+  audio.volume = parseFloat(volSlider.value);
+  audio.play().then(() => {
+    isPlaying = true;
+    updatePP();
+    vinylOnPlatter.classList.add('spinning', 'playing');
+    tonearm.classList.add('playing');
+  }).catch(() => {});
+  document.querySelectorAll('.track-item').forEach((el, j) => el.classList.toggle('active', j === i));
+}
+
+// ── Flying vinyl ─────────────────────────────────────────────────────────────
+function flyVinylToPlayer(card, labelColor) {
+  return new Promise(resolve => {
+    const cardRect  = card.getBoundingClientRect();
+    const peekEl    = card.querySelector('.vinyl-peek');
+    const peekRect  = peekEl ? peekEl.getBoundingClientRect() : cardRect;
+    const platter   = document.getElementById('platter');
+    const pRect     = platter.getBoundingClientRect();
+    const size      = cardRect.width;
+
+    // Start from the center of the vinyl peek (fixed coords — no scrollY needed)
+    const sx = peekRect.left + peekRect.width / 2 - size / 2;
+    const sy = peekRect.top  + peekRect.height / 2 - size / 2;
+
+    flyingVinyl.style.cssText = `
+      display: block;
+      width: ${size}px;
+      height: ${size}px;
+      left: ${sx}px;
+      top: ${sy}px;
+      background: ${vinylBg(labelColor)};
+      transition: none;
+      opacity: 1;
+    `;
+    // Force reflow
+    flyingVinyl.getBoundingClientRect();
+
+    const targetSize = pRect.width * 0.88;
+    const tx = pRect.left + pRect.width / 2 - targetSize / 2;
+    const ty = pRect.top  + pRect.height / 2 - targetSize / 2;
+
+    flyingVinyl.style.transition = `
+      left 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+      top 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s
+    `;
+    flyingVinyl.style.left   = `${tx}px`;
+    flyingVinyl.style.top    = `${ty}px`;
+    flyingVinyl.style.width  = `${targetSize}px`;
+    flyingVinyl.style.height = `${targetSize}px`;
+
+    setTimeout(() => {
+      flyingVinyl.style.opacity = '0';
+      setTimeout(() => { flyingVinyl.style.display = 'none'; resolve(); }, 200);
+    }, 700);
+  });
+}
+
+// ── Progress bar ─────────────────────────────────────────────────────────────
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  progressFill.style.width = `${pct}%`;
+  const cur = fmt(audio.currentTime);
+  const dur = fmt(audio.duration);
+  timeDisplay.textContent = `${cur} / ${dur}`;
+});
+audio.addEventListener('ended', () => {
+  trackIdx = (trackIdx + 1) % Math.max(tracks.length, 1);
+  if (tracks.length) { playTrack(trackIdx); renderTrackList(); }
+});
+
+document.getElementById('progressWrap').addEventListener('click', e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  if (audio.duration) audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+});
+
+function fmt(s) {
+  const m = Math.floor(s / 60);
+  return `${m}:${Math.floor(s % 60).toString().padStart(2,'0')}`;
+}
+
+// ── Play / Pause ─────────────────────────────────────────────────────────────
+document.getElementById('playPauseBtn').addEventListener('click', () => {
+  if (!audio.src) return;
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false;
+    tonearm.classList.remove('playing');
+    tonearm.classList.add('parked');
+    vinylOnPlatter.classList.remove('playing');
+  } else {
+    audio.play();
+    isPlaying = true;
+    tonearm.classList.remove('parked');
+    tonearm.classList.add('playing');
+    vinylOnPlatter.classList.add('playing');
+  }
+  updatePP();
+});
+
+// ── Prev / Next ──────────────────────────────────────────────────────────────
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (!tracks.length) return;
+  trackIdx = (trackIdx - 1 + tracks.length) % tracks.length;
+  playTrack(trackIdx); renderTrackList();
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (!tracks.length) return;
+  trackIdx = (trackIdx + 1) % tracks.length;
+  playTrack(trackIdx); renderTrackList();
+});
+
+// ── Stop & reset ─────────────────────────────────────────────────────────────
+document.getElementById('stopBtn').addEventListener('click', resetPlayer);
+
+function resetPlayer() {
+  audio.pause(); audio.src = '';
+  isPlaying = false;
+  tonearm.classList.remove('playing', 'parked');
+  vinylOnPlatter.classList.remove('spinning', 'playing', 'visible');
+  tracklistPanel.classList.remove('visible');
+  tlEmpty.classList.add('visible');
+  tlMeta.textContent = '';
+  npLabel.textContent = 'select an album';
+  npTitle.textContent = '—';
+  progressFill.style.width = '0%';
+  timeDisplay.textContent = '';
+  tracks = []; trackIdx = 0;
+  if (currentIdx !== null) {
+    document.querySelector(`.album-card[data-i="${currentIdx}"]`).classList.remove('active');
+  }
+  currentIdx = null;
+  updatePP();
+}
+
+// ── Volume ───────────────────────────────────────────────────────────────────
+volSlider.addEventListener('input', () => { audio.volume = parseFloat(volSlider.value); });
+
+// ── Update play/pause icon ────────────────────────────────────────────────────
+function updatePP() {
+  ppIcon.innerHTML = isPlaying
+    ? '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'
+    : '<path d="M8 5v14l11-7z"/>';
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+buildGrid();
+</script>
+</body>
+</html>
