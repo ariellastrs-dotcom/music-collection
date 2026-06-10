@@ -30,7 +30,7 @@
       overflow-x: hidden;
     }
 
-    /* ‚îÄ‚îÄ HEADER ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- HEADER ------------------------------- */
     header {
       padding: 2.2rem 3.5rem 2rem;
       display: flex;
@@ -59,7 +59,7 @@
       font-style: italic;
     }
 
-    /* ‚îÄ‚îÄ PLAYER SECTION ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- PLAYER SECTION ----------------------- */
     .player-section {
       display: flex;
       align-items: center;
@@ -68,7 +68,7 @@
       padding: 3.5rem 3.5rem 3rem;
     }
 
-    /* ‚îÄ‚îÄ TURNTABLE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- TURNTABLE ---------------------------- */
     .turntable {
       flex-shrink: 0;
       position: relative;
@@ -373,7 +373,7 @@
       cursor: pointer;
     }
 
-    /* ‚îÄ‚îÄ TRACKLIST ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- TRACKLIST ----------------------------- */
     .tracklist-panel {
       width: 340px;
       min-height: 460px;
@@ -500,7 +500,7 @@
     }
     .tl-open:hover { color: var(--accent); }
 
-    /* ‚îÄ‚îÄ ALBUM GRID ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- ALBUM GRID --------------------------- */
     .grid-section {
       padding: 2.5rem 3.5rem 5rem;
       border-top: 1px solid #161616;
@@ -647,7 +647,7 @@
     }
     .album-card:hover .album-tooltip { opacity: 1; }
 
-    /* ‚îÄ‚îÄ FLYING VINYL ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* -- FLYING VINYL -------------------------- */
     .flying-vinyl {
       position: fixed;
       border-radius: 50%;
@@ -707,7 +707,7 @@
 </header>
 
 <section class="player-section">
-  <!-- ‚îÄ‚îÄ Turntable ‚îÄ‚îÄ -->
+  <!-- -- Turntable -- -->
   <div class="turntable" id="turntable">
     <div class="np-label" id="npLabel">select an album</div>
     <div class="np-title" id="npTitle">&mdash;</div>
@@ -757,7 +757,7 @@
     </div>
   </div>
 
-  <!-- ‚îÄ‚îÄ Tracklist ‚îÄ‚îÄ -->
+  <!-- -- Tracklist -- -->
   <div class="tracklist-panel" id="tracklistPanel">
     <div class="tl-empty visible" id="tlEmpty">
       <div class="tl-empty-disc"></div>
@@ -772,11 +772,11 @@
       </div>
     </div>
     <ul class="track-list" id="trackList"></ul>
-    <a class="tl-open" id="tlSpotify" href="#" target="_blank" rel="noopener">open full album on Spotify ‚Üó</a>
+    <a class="tl-open" id="tlSpotify" href="#" target="_blank" rel="noopener">open full album on Spotify &#x2197;</a>
   </div>
 </section>
 
-<!-- ‚îÄ‚îÄ Album Grid ‚îÄ‚îÄ -->
+<!-- -- Album Grid -- -->
 <section class="grid-section">
   <h2>the collection</h2>
   <div class="album-grid" id="albumGrid"></div>
@@ -831,8 +831,8 @@ const ALBUMS = [
       { trackNumber:3,  trackName:'El Cuarto de Tula (2021 - Remaster)',    trackTimeMillis:445538, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/95/aa/35/95aa3580-cff5-e802-6d3f-ac865fc52346/mzaf_3538383379469178417.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'Pueblo Nuevo (2021 - Remaster)',         trackTimeMillis:366631, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/cf/90/dacf90dd-eb5b-4cd2-11b2-a2c075137afd/mzaf_2172009878157967864.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'Dos Gardenias (2021 - Remaster)',        trackTimeMillis:183967, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ec/ab/0d/ecab0d75-b6ed-a73d-2b68-c10576dcbd19/mzaf_11712361073245779845.plus.aac.p.m4a' },
-      { trackNumber:6,  trackName:'¬øY T√∫ Qu√© Has Hecho? (2021 - Remaster)',trackTimeMillis:195564, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7e/49/8c/7e498ccd-e388-1330-6489-bd245689d215/mzaf_5137547187332817231.plus.aac.p.m4a' },
-      { trackNumber:7,  trackName:'Veinte A√±os (2021 - Remaster)',          trackTimeMillis:211769, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/27/f7/1227f78f-45ec-1bb5-960a-c512a690677f/mzaf_16444670859417484327.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'\u00bfY T\u00fa Qu\u00e9 Has Hecho? (2021 - Remaster)',trackTimeMillis:195564, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7e/49/8c/7e498ccd-e388-1330-6489-bd245689d215/mzaf_5137547187332817231.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'Veinte A\u00f1os (2021 - Remaster)',          trackTimeMillis:211769, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/27/f7/1227f78f-45ec-1bb5-960a-c512a690677f/mzaf_16444670859417484327.plus.aac.p.m4a' },
       { trackNumber:8,  trackName:'El Carretero (2021 - Remaster)',         trackTimeMillis:209931, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e9/ad/fc/e9adfc82-6cfc-101e-3603-5a4cb70dbe2a/mzaf_1887698602320757107.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Candela (2021 - Remaster)',              trackTimeMillis:329115, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/26/ff/89/26ff894b-d3b1-ebbd-8aee-d404b783de16/mzaf_17671331752583811207.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Amor de Loca Juventud (2021 - Remaster)',trackTimeMillis:202926, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0a/06/e3/0a06e3e1-96f4-cafb-8c95-2de77632fee4/mzaf_9960203296317027312.plus.aac.p.m4a' },
@@ -845,21 +845,21 @@ const ALBUMS = [
   { artist:'La Maxima 79',         title:'#Resilienza',                              labelColor:'#e05050', note:'this album came out when i was living in miami. i was obsessed with almost every song that played and have fond memories dancing to them in ball & chain.',                                                  spotifySearch:'la+maxima+79+resilienza',
     staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/99/a6/13/99a6133e-56f9-19b8-a28f-fd695bf3eaef/194660359827.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/99/a6/13/99a6133e-56f9-19b8-a28f-fd695bf3eaef/194660359827.jpg/200x200bb.jpg', collectionId:1490322032, artistName:'La Maxima 79', collectionName:'#Resilienza', year:2019 },
     staticTracks: [
-      { trackNumber:1,  trackName:'El Son Guaguanc√≥',         trackTimeMillis:244541, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/84/62/77/846277ae-0089-c6ad-f4aa-03d9487607c9/mzaf_6618024227871811396.plus.aac.p.m4a' },
+      { trackNumber:1,  trackName:'El Son Guaguanc\u00f3',         trackTimeMillis:244541, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/84/62/77/846277ae-0089-c6ad-f4aa-03d9487607c9/mzaf_6618024227871811396.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'La Cinta Verde',           trackTimeMillis:304865, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f9/38/7c/f9387c63-7fed-7873-6f74-52952cad047f/mzaf_2808839015092310451.plus.aac.p.m4a' },
       { trackNumber:3,  trackName:'La Pachanga Ping Pong',    trackTimeMillis:270599, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/73/6d/ce/736dcebc-8dc1-a1c8-cbbf-993cdbadcec8/mzaf_15016982501995421289.plus.aac.p.m4a' },
-      { trackNumber:4,  trackName:'Un D√≠a Mas',               trackTimeMillis:275027, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1d/e2/41/1de24105-0102-073f-4b8f-d26e0ab2a255/mzaf_5692078779785802300.plus.aac.p.m4a' },
+      { trackNumber:4,  trackName:'Un D\u00eda Mas',               trackTimeMillis:275027, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1d/e2/41/1de24105-0102-073f-4b8f-d26e0ab2a255/mzaf_5692078779785802300.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'Iglesia Rumbera',          trackTimeMillis:280378, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c4/c3/56/c4c356d1-f850-bc74-59bf-530966646fda/mzaf_8482444543648120481.plus.aac.p.m4a' },
       { trackNumber:6,  trackName:'Estamos en Competencia',   trackTimeMillis:185189, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1a/d1/a7/1ad1a758-80af-f576-eebf-3d139f13029c/mzaf_14077499276992024728.plus.aac.p.m4a' },
       { trackNumber:7,  trackName:'El Bacalao Salao',         trackTimeMillis:291405, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e0/8d/9d/e08d9dfb-e5c5-2fd2-45f4-2a7c63523ea8/mzaf_11556653666610234260.plus.aac.p.m4a' },
       { trackNumber:8,  trackName:'El Trillo del Puma',       trackTimeMillis:237284, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/96/1e/69/961e692f-caca-1d50-2b3d-4b26ba06d967/mzaf_14730282225468203170.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Tabaratiando',             trackTimeMillis:217054, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/43/83/2e/43832ef0-1a4f-43ab-73d8-3bee44db4d45/mzaf_16911486357668383402.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'El Pasillito',             trackTimeMillis:244541, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/77/13/36/771336a0-c977-c16d-b238-2839975f6aed/mzaf_7169615881689417431.plus.aac.p.m4a' },
-      { trackNumber:11, trackName:'El Profeta del Guaguanc√≥', trackTimeMillis:232800, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fb/50/d5/fb50d555-4a9c-e6c9-9d09-e5487fed6e09/mzaf_10277375584892989186.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'El Profeta del Guaguanc\u00f3', trackTimeMillis:232800, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fb/50/d5/fb50d555-4a9c-e6c9-9d09-e5487fed6e09/mzaf_10277375584892989186.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'Seventy Nine Boogaloo',    trackTimeMillis:207973, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/98/3b/e9/983be9c2-fca8-3f2c-35fc-beabfcdc0f11/mzaf_4338105521097484440.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'El Bele Bele',             trackTimeMillis:294486, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fc/2b/ad/fc2bade8-a79a-dcff-bd6f-92315a80b185/mzaf_7944025622091454427.plus.aac.p.m4a' },
       { trackNumber:14, trackName:'En la Calle',              trackTimeMillis:246000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8c/9a/82/8c9a8222-7df8-e9c4-89fa-bee6c6d358c9/mzaf_16061197377635719109.plus.aac.p.m4a' },
-      { trackNumber:15, trackName:'La Maxima Chang√º√≠',        trackTimeMillis:245189, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a6/a2/0d/a6a20d02-d0af-0126-8e94-735a623d241c/mzaf_424992826233963544.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'La Maxima Chang\u00fc\u00ed',        trackTimeMillis:245189, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a6/a2/0d/a6a20d02-d0af-0126-8e94-735a623d241c/mzaf_424992826233963544.plus.aac.p.m4a' },
       { trackNumber:16, trackName:'Colada (DJ Version)',      trackTimeMillis:250541, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8b/fb/ce/8bfbcec0-30e9-f7b8-fe61-94d643649036/mzaf_898544085126287042.plus.aac.p.m4a' },
     ]
   },
@@ -867,13 +867,13 @@ const ALBUMS = [
     staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ba/71/9dba7123-76e4-54db-52f5-18f46e95ecdb/c23ee0af-6c54-4c4a-a50d-72529e05bc23.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ba/71/9dba7123-76e4-54db-52f5-18f46e95ecdb/c23ee0af-6c54-4c4a-a50d-72529e05bc23.jpg/200x200bb.jpg', collectionId:1858386765, artistName:'Alexander Abreu & Havana D\'Primera', collectionName:'Cantor del Pueblo', year:2018 },
     staticTracks: [
       { trackNumber:1,  trackName:'#Dprimera',        trackTimeMillis:234392, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/19/a5/8519a56a-bc43-3d34-ab2a-eefd6c8f78f8/mzaf_16822957437026025161.plus.aac.p.m4a' },
-      { trackNumber:2,  trackName:'Tres D√≠as',        trackTimeMillis:321066, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c4/82/34/c48234b5-7fe3-4b1d-ab9e-5c2f7c0797b0/mzaf_17366231438710948728.plus.aac.p.m4a' },
+      { trackNumber:2,  trackName:'Tres D\u00edas',        trackTimeMillis:321066, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c4/82/34/c48234b5-7fe3-4b1d-ab9e-5c2f7c0797b0/mzaf_17366231438710948728.plus.aac.p.m4a' },
       { trackNumber:3,  trackName:'La Mujer Piropo',  trackTimeMillis:247557, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/75/32/36753221-250a-c436-993b-70826983a27c/mzaf_13597305261288729814.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'Cantor del Pueblo',trackTimeMillis:325794, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/b7/33/acb73375-8613-ce83-8427-388df460dd56/mzaf_10538686804969897985.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'Manantiales',      trackTimeMillis:311509, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/e7/81/8ce781dc-0c83-13be-2cef-aab0e07031a5/mzaf_14300728371230455161.plus.aac.p.m4a' },
       { trackNumber:6,  trackName:'Mujeriego',        trackTimeMillis:250640, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/74/e5/f3/74e5f304-02b1-0bdf-b8aa-49d40c47d8f1/mzaf_7386462051367833945.plus.aac.p.m4a' },
-      { trackNumber:7,  trackName:'Habana M√≠a',       trackTimeMillis:286218, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/30/8a/e6/308ae6d9-89cb-d218-1fa4-30786d5357d1/mzaf_14400383835501637448.plus.aac.p.m4a' },
-      { trackNumber:8,  trackName:'Energ√≠as Oscuras', trackTimeMillis:181938, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cf/ca/7a/cfca7a3c-2ed1-5710-dd51-9d99f7e9bc29/mzaf_3338955904646043960.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'Habana M\u00eda',       trackTimeMillis:286218, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/30/8a/e6/308ae6d9-89cb-d218-1fa4-30786d5357d1/mzaf_14400383835501637448.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Energ\u00edas Oscuras', trackTimeMillis:181938, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cf/ca/7a/cfca7a3c-2ed1-5710-dd51-9d99f7e9bc29/mzaf_3338955904646043960.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Pastilla de Menta',trackTimeMillis:280550, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/d5/a4/b1d5a49e-11f8-a203-52d2-54c7a7ebea31/mzaf_10857918481621224176.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Lamento Yoruba',   trackTimeMillis:321693, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/60/f6/d0/60f6d0c6-60c2-e4b7-37a2-f19cc720b1e4/mzaf_16323497429517871602.plus.aac.p.m4a' },
     ]
@@ -888,13 +888,13 @@ const ALBUMS = [
       { trackNumber:5,  trackName:'Dile Luna',                  trackTimeMillis:187509, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/54/88/a0548829-cfd2-431f-2e52-769e41a3466d/mzaf_17990659419634889696.plus.aac.p.m4a' },
       { trackNumber:6,  trackName:'Cuando Me Muera Te Olvido',  trackTimeMillis:154817, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/2d/8e/322d8e62-fe2a-18e7-34e6-3e6010c3c172/mzaf_15725809412725753782.plus.aac.p.m4a' },
       { trackNumber:7,  trackName:'Coleccionando Heridas',      trackTimeMillis:204795, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/be/a9/45/bea945d4-a56f-63fc-8a11-75e46a0a4d25/mzaf_17439990092066596672.plus.aac.p.m4a' },
-      { trackNumber:8,  trackName:'Un Gatito Me Llam√≥',         trackTimeMillis:122198, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/e7/40/5be74018-2ee8-6449-b4b8-e8b74fbbae56/mzaf_18026435831567518073.plus.aac.p.m4a' },
-      { trackNumber:9,  trackName:'Amiga M√≠a',                  trackTimeMillis:224415, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/eb/50/db/eb50db77-4dc4-9274-e68d-80663450bf96/mzaf_16469356694756760095.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Un Gatito Me Llam\u00f3',         trackTimeMillis:122198, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/e7/40/5be74018-2ee8-6449-b4b8-e8b74fbbae56/mzaf_18026435831567518073.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'Amiga M\u00eda',                  trackTimeMillis:224415, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/eb/50/db/eb50db77-4dc4-9274-e68d-80663450bf96/mzaf_16469356694756760095.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Bandida Entrenada',          trackTimeMillis:135811, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/70/50/55/705055f8-3919-b059-94e0-81dbe7f2b547/mzaf_6654703722211560582.plus.aac.p.m4a' },
       { trackNumber:11, trackName:'Ese Hombre Es Malo',         trackTimeMillis:217370, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1a/ec/cb/1aeccb21-7132-2af9-56b0-442b8071ccc9/mzaf_4122229771510170689.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'A Su Boca La Amo (Interlude)',trackTimeMillis:76678, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/b9/12/12b912f6-0d9d-3b26-1e2d-274f503e6cd7/mzaf_9790188639143220976.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'Verano Rosa',                trackTimeMillis:210047, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/68/be/24/68be2410-32d1-67b0-1da2-11f2dc217db5/mzaf_6506233517946117627.plus.aac.p.m4a' },
-      { trackNumber:14, trackName:'No Puedo Vivir Sin √âl',      trackTimeMillis:218271, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/41/eb/f7/41ebf7bd-edde-f8b8-c44f-cd9137c622eb/mzaf_6651460700726905122.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'No Puedo Vivir Sin \u00c9l',      trackTimeMillis:218271, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/41/eb/f7/41ebf7bd-edde-f8b8-c44f-cd9137c622eb/mzaf_6651460700726905122.plus.aac.p.m4a' },
       { trackNumber:15, trackName:'Tu Perfume',                 trackTimeMillis:183616, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/41/fc/8e41fcae-1e6e-747f-d00b-2a39395b92ae/mzaf_4467303377564094910.plus.aac.p.m4a' },
       { trackNumber:16, trackName:'FKN Movie',                  trackTimeMillis:179495, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2b/75/ea/2b75ea9d-f90e-2202-f52e-421ce1abcdf8/mzaf_15632103661497377279.plus.aac.p.m4a' },
       { trackNumber:17, trackName:'Se Puso Linda',              trackTimeMillis:146341, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/2e/94/392e94aa-df17-7122-1b96-689e9df8ff48/mzaf_14848710467653725681.plus.aac.p.m4a' },
@@ -960,26 +960,26 @@ const ALBUMS = [
     ]
   },
   { artist:'Romeo Santos',         title:'Formula, Vol. 2',                          labelColor:'#c04040', note:'one of the first bachata albums i ever listened to. romeo was EVERYWHERE during this time.',                           spotifySearch:'romeo+santos+formula+vol+2',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/98/5e/66985ed2-428c-61c3-249e-16e13cd2ba9d/886444433297.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/98/5e/66985ed2-428c-61c3-249e-16e13cd2ba9d/886444433297.jpg/200x200bb.jpg', collectionId:804149407, artistName:'Romeo Santos', collectionName:'F√≥rmula, Vol. 2 (Deluxe Edition)', year:2014 },
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/98/5e/66985ed2-428c-61c3-249e-16e13cd2ba9d/886444433297.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/98/5e/66985ed2-428c-61c3-249e-16e13cd2ba9d/886444433297.jpg/200x200bb.jpg', collectionId:804149407, artistName:'Romeo Santos', collectionName:'F\u00f3rmula, Vol. 2 (Deluxe Edition)', year:2014 },
     staticTracks: [
       { trackNumber:1,  trackName:'Intro, Vol. 2 (feat. Kevin Hart)',          trackTimeMillis:70067,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/aa/4e/24aa4ec5-ec28-250c-57b9-7f66148d41bb/mzaf_17406043735808255205.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'Inocente',                                  trackTimeMillis:236293, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4e/0d/10/4e0d10ef-f9b5-5dd5-4a36-468676210d85/mzaf_9519324335275083581.plus.aac.p.m4a' },
       { trackNumber:3,  trackName:'Necio (feat. Carlos Santana)',               trackTimeMillis:264267, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/7d/c4/da7dc453-b7c0-930c-cba9-c65aea65f52d/mzaf_3518273568310819576.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'Amigo',                                     trackTimeMillis:231560, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ec/74/f0/ec74f05f-deb8-becc-28bd-384a6b7eede8/mzaf_13671978037070138994.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'Cancioncitas de Amor',                      trackTimeMillis:237093, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/73/7a/6f/737a6fcc-cb84-cf38-8eeb-94eefa857b7d/mzaf_6286334844149476383.plus.aac.p.m4a' },
-      { trackNumber:6,  trackName:'Eres M√≠a',                                  trackTimeMillis:250640, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e6/a6/9d/e6a69daa-36bd-9897-eaad-30b1ad3a570e/mzaf_12676927475508946360.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'Eres M\u00eda',                                  trackTimeMillis:250640, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e6/a6/9d/e6a69daa-36bd-9897-eaad-30b1ad3a570e/mzaf_12676927475508946360.plus.aac.p.m4a' },
       { trackNumber:7,  trackName:'Odio (feat. Drake)',                        trackTimeMillis:225000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2c/e4/49/2ce44997-f489-86f9-10be-e43783cb9bb1/mzaf_18180355719391443443.plus.aac.p.m4a' },
       { trackNumber:8,  trackName:'Hilito',                                    trackTimeMillis:234760, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b7/4b/31/b74b31ed-025a-4b4e-3464-63d2628b4142/mzaf_5830334720812216087.plus.aac.p.m4a' },
-      { trackNumber:9,  trackName:'Yo Tambi√©n (feat. Marc Anthony)',           trackTimeMillis:306453, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d9/33/ac/d933ac95-f3ae-2f26-3297-539ea29eed24/mzaf_10552766633155700539.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'Yo Tambi\u00e9n (feat. Marc Anthony)',           trackTimeMillis:306453, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d9/33/ac/d933ac95-f3ae-2f26-3297-539ea29eed24/mzaf_10552766633155700539.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Fui a Jamaica',                             trackTimeMillis:235187, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/41/43/de/4143de6f-5804-abd5-0c5c-c3087205ae57/mzaf_4182593943224432686.plus.aac.p.m4a' },
       { trackNumber:11, trackName:'No Tiene la Culpa',                         trackTimeMillis:303947, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/12/9d/14/129d14e0-63fb-aea2-722f-2410503cdb3c/mzaf_769807634193725246.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'Animales (feat. Nicki Minaj)',              trackTimeMillis:169347, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/df/37/8b/df378bd7-17d1-0c05-33a9-0494f715e12a/mzaf_17539788856589679380.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'Propuesta Indecente',                       trackTimeMillis:235133, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2c/4c/5d/2c4c5d8a-d3de-ede0-b0be-59e0705e1c4a/mzaf_248439796457250779.plus.aac.p.m4a' },
       { trackNumber:14, trackName:'Obra Maestra',                              trackTimeMillis:245453, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/9f/65/d49f6550-828b-2d76-2fb9-152143271d59/mzaf_16213017083769101105.plus.aac.p.m4a' },
-      { trackNumber:15, trackName:'7 D√≠as',                                    trackTimeMillis:253200, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/29/13/44291382-76d6-4f73-3642-998f3c82b827/mzaf_13667037534827041588.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'7 D\u00edas',                                    trackTimeMillis:253200, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/29/13/44291382-76d6-4f73-3642-998f3c82b827/mzaf_13667037534827041588.plus.aac.p.m4a' },
       { trackNumber:16, trackName:'Si Yo Muero',                               trackTimeMillis:202427, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bb/4f/c8/bb4fc884-6227-0196-36b6-ec0b0a476366/mzaf_11390247833455478312.plus.aac.p.m4a' },
       { trackNumber:17, trackName:'Outro',                                     trackTimeMillis:141000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/50/6d/e3/506de303-b329-dc3c-fb2f-95889d2ce589/mzaf_5579011771793858312.plus.aac.p.m4a' },
-      { trackNumber:18, trackName:'Trust (feat. Tego Calder√≥n)',               trackTimeMillis:229853, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/e4/89/f8e48996-c5bf-d5a3-73fa-1274cc910508/mzaf_7446672660952712559.plus.aac.p.m4a' },
+      { trackNumber:18, trackName:'Trust (feat. Tego Calder\u00f3n)',               trackTimeMillis:229853, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/e4/89/f8e48996-c5bf-d5a3-73fa-1274cc910508/mzaf_7446672660952712559.plus.aac.p.m4a' },
       { trackNumber:19, trackName:'Mami',                                      trackTimeMillis:94080,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/51/7f/05/517f05ed-2a41-335d-8cfc-a2c2e1908538/mzaf_10365050490257829015.plus.aac.p.m4a' },
     ]
   },
@@ -990,12 +990,12 @@ const ALBUMS = [
       { trackNumber:2,  trackName:'Plato de Segunda Mesa',     trackTimeMillis:308428, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a4/65/69/a4656932-3805-6bdd-837a-bc8ad9675321/mzaf_6834111222516308950.plus.aac.p.m4a' },
       { trackNumber:3,  trackName:'Al Final de la Vida',       trackTimeMillis:307917, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/e2/f4/f6e2f4e8-59bd-024e-28d6-8581160ffd4f/mzaf_5283151209773705636.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'Pasaporte',                 trackTimeMillis:300452, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/61/e5/34/61e534c9-f43c-6346-fc04-28ba0e58842c/mzaf_9376789188959028630.plus.aac.p.m4a' },
-      { trackNumber:5,  trackName:'Se Te Olvid√≥ Qui√©n Soy',   trackTimeMillis:299121, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/af/20/b4/af20b44d-b8ee-e75a-20ff-b3285b539c61/mzaf_13677209790276601885.plus.aac.p.m4a' },
+      { trackNumber:5,  trackName:'Se Te Olvid\u00f3 Qui\u00e9n Soy',   trackTimeMillis:299121, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/af/20/b4/af20b44d-b8ee-e75a-20ff-b3285b539c61/mzaf_13677209790276601885.plus.aac.p.m4a' },
       { trackNumber:6,  trackName:'El Paso de la Bailarina',   trackTimeMillis:353164, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/22/2b/aa/222baa85-fc89-6c3c-e977-c3f407fa8b2a/mzaf_11858473611673451755.plus.aac.p.m4a' },
       { trackNumber:7,  trackName:'La Celosa',                 trackTimeMillis:313634, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/88/cb/f2/88cbf297-3dd4-c6c1-3af4-92d10e9c8f69/mzaf_8361597633098138205.plus.aac.p.m4a' },
-      { trackNumber:8,  trackName:'Donde Estemos T√∫ y Yo',    trackTimeMillis:312158, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a1/a1/3b/a1a13bbf-b934-9670-a6db-af87e3076cfa/mzaf_16771213318748930631.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'Donde Estemos T\u00fa y Yo',    trackTimeMillis:312158, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a1/a1/3b/a1a13bbf-b934-9670-a6db-af87e3076cfa/mzaf_16771213318748930631.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Amor a la Roca',            trackTimeMillis:276545, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/bc/1b/f7bc1bf0-e860-d415-deee-beef4b502e03/mzaf_10817784772040487480.plus.aac.p.m4a' },
-      { trackNumber:10, trackName:'El Que Sabe Est√° Callao',  trackTimeMillis:344619, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c5/c9/a4/c5c9a485-d934-557c-e880-2ea85bd0ea8f/mzaf_10447951319491628691.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'El Que Sabe Est\u00e1 Callao',  trackTimeMillis:344619, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c5/c9/a4/c5c9a485-d934-557c-e880-2ea85bd0ea8f/mzaf_10447951319491628691.plus.aac.p.m4a' },
     ]
   },
   { artist:'Wicked Movie Cast',    title:'Wicked: The Soundtrack',                   labelColor:'#60c060', note:'read the book when I was a kid and have been obsessed with the musical. cynthia is incredible as elphaba',                             spotifySearch:'wicked+soundtrack+2024',
@@ -1069,30 +1069,30 @@ const ALBUMS = [
       { trackNumber:14, trackName:'Sabotage',                   trackTimeMillis:214600, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/dc/87/d7/dc87d7f6-c925-401a-b32e-53dbb0118641/mzaf_7893464828342816503.plus.aac.p.m4a' },
     ]
   },
-  { artist:'Bad Bunny',            title:'Deb√≠ Tirar M√°s Fotos',                     labelColor:'#e0c040', note:'no tengo palabras. a masterpiece album.',           spotifySearch:'bad+bunny+debi+tirar+mas+fotos',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/200x200bb.jpg', collectionId:1787022393, artistName:'Bad Bunny', collectionName:'DeB√ç TiRAR M√°S FOToS', year:2025 },
+  { artist:'Bad Bunny',            title:'Deb\u00ed Tirar M\u00e1s Fotos',                     labelColor:'#e0c040', note:'no tengo palabras. a masterpiece album.',           spotifySearch:'bad+bunny+debi+tirar+mas+fotos',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/200x200bb.jpg', collectionId:1787022393, artistName:'Bad Bunny', collectionName:'DeB\u00cd TiRAR M\u00e1S FOToS', year:2025 },
     staticTracks: [
       { trackNumber:1,  trackName:'NUEVAYoL',                  trackTimeMillis:184000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/97/55/2e97555a-1ed3-9e07-de57-07e1213186c9/mzaf_7594924455925081680.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'VOY A LLeVARTE PA PR',      trackTimeMillis:156000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/04/a3/b6/04a3b623-a232-494a-2edf-80fb0b2eb426/mzaf_4844324965502281486.plus.aac.p.m4a' },
       { trackNumber:3,  trackName:'BAILE INoLVIDABLE',         trackTimeMillis:368000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3a/ea/38/3aea38e3-106b-db96-7beb-5d2bc02bdf70/mzaf_17568275540135957611.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'PERFuMITO NUEVO',           trackTimeMillis:201000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/79/65/40/79654042-6486-a0dd-8421-69395831066b/mzaf_9104539868690068618.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'WELTiTA',                   trackTimeMillis:188000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/38/20/fa382077-6038-507d-d043-054d8b716a2a/mzaf_9850027962155209593.plus.aac.p.m4a' },
-      { trackNumber:6,  trackName:'VeLD√Å',                     trackTimeMillis:235000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/12/88/5d128874-630c-6a49-8338-1b0b5d927e6a/mzaf_5594290469332929228.plus.aac.p.m4a' },
-      { trackNumber:7,  trackName:'EL CL√∫B',                   trackTimeMillis:223000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/58/03/f1/5803f105-264c-82f1-9ae6-38d19cf85507/mzaf_1750694838330927439.plus.aac.p.m4a' },
-      { trackNumber:8,  trackName:'KETU TeCR√â',                trackTimeMillis:251000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/b4/a3/6bb4a33e-ae88-ed30-d4ef-5ab83391dfd6/mzaf_13948523974848459571.plus.aac.p.m4a' },
+      { trackNumber:6,  trackName:'VeLD\u00c1',                     trackTimeMillis:235000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/12/88/5d128874-630c-6a49-8338-1b0b5d927e6a/mzaf_5594290469332929228.plus.aac.p.m4a' },
+      { trackNumber:7,  trackName:'EL CL\u00faB',                   trackTimeMillis:223000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/58/03/f1/5803f105-264c-82f1-9ae6-38d19cf85507/mzaf_1750694838330927439.plus.aac.p.m4a' },
+      { trackNumber:8,  trackName:'KETU TeCR\u00c9',                trackTimeMillis:251000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/b4/a3/6bb4a33e-ae88-ed30-d4ef-5ab83391dfd6/mzaf_13948523974848459571.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'BOKeTE',                    trackTimeMillis:216000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4f/d2/1a/4fd21ae4-6814-6ca2-ef56-4b8fc87cc319/mzaf_4710589038482095505.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'KLOuFRENS',                 trackTimeMillis:199000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/7f/0e/157f0e07-bf0c-9b20-a280-934068e7e194/mzaf_17726143982854325993.plus.aac.p.m4a' },
       { trackNumber:11, trackName:'TURiSTA',                   trackTimeMillis:190000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/25/d3/06/25d306b1-5945-28fd-4929-01989d2167e8/mzaf_5509319358451232894.plus.aac.p.m4a' },
-      { trackNumber:12, trackName:'CAF√© CON RON',              trackTimeMillis:228000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/38/8f/57388fad-59e3-e11f-4147-500341594b86/mzaf_6984117293309341445.plus.aac.p.m4a' },
+      { trackNumber:12, trackName:'CAF\u00e9 CON RON',              trackTimeMillis:228000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/38/8f/57388fad-59e3-e11f-4147-500341594b86/mzaf_6984117293309341445.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'PIToRRO DE COCO',           trackTimeMillis:207000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/70/0b/44700b1e-49bb-cf42-556c-9a86a2ad6d69/mzaf_9113194764678012750.plus.aac.p.m4a' },
-      { trackNumber:14, trackName:'LO QUE LE PAS√ì A HAWAii',  trackTimeMillis:229000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/05/26/130526d9-4ce5-4871-3858-b2ac79773028/mzaf_16078866261354513181.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'LO QUE LE PAS\u00d3 A HAWAii',  trackTimeMillis:229000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/05/26/130526d9-4ce5-4871-3858-b2ac79773028/mzaf_16078866261354513181.plus.aac.p.m4a' },
       { trackNumber:15, trackName:'EoO',                       trackTimeMillis:205000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/b7/ad/bbb7adc0-e19a-de2c-f5fa-7aa7597c018f/mzaf_3830528517982749933.plus.aac.p.m4a' },
       { trackNumber:16, trackName:'DtMF',                      trackTimeMillis:237000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d9/ea/9c/d9ea9c1c-4b31-c448-0882-f9bae822e1fd/mzaf_3206041669449949150.plus.aac.p.m4a' },
       { trackNumber:17, trackName:'LA MuDANZA',                trackTimeMillis:213000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0a/97/81/0a9781e6-ed76-0a9c-74c0-9835cbddd543/mzaf_15456814033664478187.plus.aac.p.m4a' },
     ]
   },
-  { artist:'Jhen√© Aiko',           title:'Chilombo',                                 labelColor:'#9050c0', note:'her live performance of this album is truly healing',                       spotifySearch:'jhene+aiko+chilombo',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b5/35/84/b535844b-6fe5-f659-4ba2-217c8e8b5e8a/20UMGIM38482.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b5/35/84/b535844b-6fe5-f659-4ba2-217c8e8b5e8a/20UMGIM38482.rgb.jpg/200x200bb.jpg', collectionId:1647037509, artistName:'Jhen√© Aiko', collectionName:'Chilombo', year:2020 },
+  { artist:'Jhen\u00e9 Aiko',           title:'Chilombo',                                 labelColor:'#9050c0', note:'her live performance of this album is truly healing',                       spotifySearch:'jhene+aiko+chilombo',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b5/35/84/b535844b-6fe5-f659-4ba2-217c8e8b5e8a/20UMGIM38482.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b5/35/84/b535844b-6fe5-f659-4ba2-217c8e8b5e8a/20UMGIM38482.rgb.jpg/200x200bb.jpg', collectionId:1647037509, artistName:'Jhen\u00e9 Aiko', collectionName:'Chilombo', year:2020 },
     staticTracks: [
       { trackNumber:1,  trackName:'Lotus (intro)',                                                  trackTimeMillis:71627,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2e/df/e4/2edfe409-25a5-c834-009a-5057134e7c56/mzaf_10780076436138429784.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'Triggered (freestyle)',                                          trackTimeMillis:209933, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/cc/f3/8accf352-97cf-bb38-51bd-aa552fbca518/mzaf_3184323895266407623.plus.aac.p.m4a' },
@@ -1125,8 +1125,8 @@ const ALBUMS = [
       { trackNumber:29, trackName:'Summer 2020',                                                    trackTimeMillis:196000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/05/06/4a/05064afd-0b05-512a-9356-9904665cf5a9/mzaf_13208231617442602999.plus.aac.p.m4a' },
     ]
   },
-  { artist:'Les Mis√©rables Cast',  title:'Les Mis√©rables: The Motion Picture Soundtrack', labelColor:'#5050a0', note:'was roasted by my sister because of how many times i\'ve seen this movie. loooove',               spotifySearch:'les+miserables+motion+picture+soundtrack',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/a4/11/9fa411eb-ee1f-9a67-101c-3197a9637244/00602537250028.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/a4/11/9fa411eb-ee1f-9a67-101c-3197a9637244/00602537250028.rgb.jpg/200x200bb.jpg', collectionId:1442461358, artistName:'Les Mis√©rables Cast', collectionName:'Les Mis√©rables (The Motion Picture Soundtrack Deluxe)', year:2012 },
+  { artist:'Les Mis\u00e9rables Cast',  title:'Les Mis\u00e9rables: The Motion Picture Soundtrack', labelColor:'#5050a0', note:'was roasted by my sister because of how many times i\'ve seen this movie. loooove',               spotifySearch:'les+miserables+motion+picture+soundtrack',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/a4/11/9fa411eb-ee1f-9a67-101c-3197a9637244/00602537250028.rgb.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/a4/11/9fa411eb-ee1f-9a67-101c-3197a9637244/00602537250028.rgb.jpg/200x200bb.jpg', collectionId:1442461358, artistName:'Les Mis\u00e9rables Cast', collectionName:'Les Mis\u00e9rables (The Motion Picture Soundtrack Deluxe)', year:2012 },
     staticTracks: [
       { trackNumber:1,  trackName:'Look Down',                          trackTimeMillis:195840, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fc/1d/59/fc1d59eb-e4fb-6108-0a04-0ce389dde194/mzaf_6812847038703336683.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'The Bishop',                         trackTimeMillis:94893,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6d/00/fc/6d00fca4-d3fb-d447-1ad8-657a52f52ab2/mzaf_15958040150324699832.plus.aac.p.m4a' },
@@ -1146,7 +1146,7 @@ const ALBUMS = [
       { trackNumber:16, trackName:'Stars',                              trackTimeMillis:165640, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/44/00/50/440050aa-3062-fa4f-86b9-358ca82fcf9f/mzaf_13892533088001437763.plus.aac.p.m4a' },
       { trackNumber:17, trackName:'Paris / Look Down',                  trackTimeMillis:193573, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/10/85/d6/1085d69e-fa7d-e0e4-440c-db0293af7e10/mzaf_7909749337723223063.plus.aac.p.m4a' },
       { trackNumber:18, trackName:'The Robbery',                        trackTimeMillis:171707, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e7/74/5d/e7745d8b-1194-5b7b-0300-4d2d5bb59371/mzaf_3244943270689957927.plus.aac.p.m4a' },
-      { trackNumber:19, trackName:'ABC Caf√© / Red & Black',             trackTimeMillis:261120, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1a/85/47/1a854781-0141-a3ec-7859-26524cce19a0/mzaf_15916817262197790435.plus.aac.p.m4a' },
+      { trackNumber:19, trackName:'ABC Caf\u00e9 / Red & Black',             trackTimeMillis:261120, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1a/85/47/1a854781-0141-a3ec-7859-26524cce19a0/mzaf_15916817262197790435.plus.aac.p.m4a' },
       { trackNumber:20, trackName:'In My Life',                         trackTimeMillis:256773, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/09/95/1d/09951d3e-5db5-519f-e1d7-dd40dedb18c4/mzaf_6533712762069408861.plus.aac.p.m4a' },
       { trackNumber:21, trackName:'A Heart Full of Love',               trackTimeMillis:121080, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/99/67/43/99674302-ebea-a58f-46af-36b6def87e42/mzaf_2253496397668524641.plus.aac.p.m4a' },
       { trackNumber:22, trackName:'On My Own',                          trackTimeMillis:191067, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ea/4f/73/ea4f7328-9feb-0a0b-175f-7d7ca2b471ce/mzaf_1252174664086587837.plus.aac.p.m4a' },
@@ -1172,12 +1172,12 @@ const ALBUMS = [
       { trackNumber:42, trackName:'Epilogue',                           trackTimeMillis:502382, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/4b/62/bf/4b62bf36-166a-8f23-83da-50e8f038bd8e/mzaf_6110854118740675459.plus.aac.p.m4a' },
     ]
   },
-  { artist:'Vicente Garc√≠a',       title:'A la Mar',                                 labelColor:'#50a0c0', note:'his music reminds me of a warm beach. please listen to the piano version of te sone, it\'s life changing',                 spotifySearch:'vicente+garcia+a+la+mar',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8b/76/07/8b76073b-0934-d592-2b09-888b74c8cef9/886445912630.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8b/76/07/8b76073b-0934-d592-2b09-888b74c8cef9/886445912630.jpg/200x200bb.jpg', collectionId:1136242439, artistName:'Vicente Garc√≠a', collectionName:'A la Mar', year:2016 },
+  { artist:'Vicente Garc\u00eda',       title:'A la Mar',                                 labelColor:'#50a0c0', note:'his music reminds me of a warm beach. please listen to the piano version of te sone, it\'s life changing',                 spotifySearch:'vicente+garcia+a+la+mar',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8b/76/07/8b76073b-0934-d592-2b09-888b74c8cef9/886445912630.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8b/76/07/8b76073b-0934-d592-2b09-888b74c8cef9/886445912630.jpg/200x200bb.jpg', collectionId:1136242439, artistName:'Vicente Garc\u00eda', collectionName:'A la Mar', year:2016 },
     staticTracks: [
       { trackNumber:1,  trackName:'A La Mar',                                                    trackTimeMillis:211227, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/93/1f/93/931f9379-4b9d-4694-4673-6951ffdfe106/mzaf_2824674931710356535.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'Dulcito e Coco',                                              trackTimeMillis:189067, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fd/80/6f/fd806f05-4341-d570-7364-0351e536dd43/mzaf_14737189746023917319.plus.aac.p.m4a' },
-      { trackNumber:3,  trackName:'Carmes√≠',                                                     trackTimeMillis:181467, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/91/8e/0b/918e0b35-c003-ee44-d389-bae6636d790f/mzaf_12494943748502735209.plus.aac.p.m4a' },
+      { trackNumber:3,  trackName:'Carmes\u00ed',                                                     trackTimeMillis:181467, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/91/8e/0b/918e0b35-c003-ee44-d389-bae6636d790f/mzaf_12494943748502735209.plus.aac.p.m4a' },
       { trackNumber:4,  trackName:'Espuma y Arrecife (feat. Los Gaiteros de San Jacinto)',       trackTimeMillis:244067, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5c/63/d3/5c63d36b-7765-cd39-9227-2befc1d19da5/mzaf_15163812626998591214.plus.aac.p.m4a' },
       { trackNumber:5,  trackName:'Pa Nuevayor',                                                 trackTimeMillis:68880,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/fb/3e/05fb3e88-3e64-73c0-afcd-36f98c65c76b/mzaf_9002922173340830546.plus.aac.p.m4a' },
       { trackNumber:6,  trackName:'Amor Pretao',                                                 trackTimeMillis:184200, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b0/7e/d5/b07ed5bf-69db-86c3-4e69-cc3b0f09ef7a/mzaf_15512387286341445498.plus.aac.p.m4a' },
@@ -1185,11 +1185,11 @@ const ALBUMS = [
       { trackNumber:8,  trackName:'El Yeyo',                                                     trackTimeMillis:171627, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/14/3a/19/143a1985-60eb-f31b-b27f-969f7cc5890c/mzaf_1166091202485130388.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Mal De Amore',                                                trackTimeMillis:209093, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9a/05/38/9a053891-acc4-ffe4-7467-072b0a320088/mzaf_204665329102647913.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Bachata En Kingston',                                         trackTimeMillis:239427, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8e/9f/d6/8e9fd654-8f82-cef9-c20a-26a8b2b42ede/mzaf_500435415661127462.plus.aac.p.m4a' },
-      { trackNumber:11, trackName:'Boh√≠o',                                                       trackTimeMillis:195947, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b9/3b/f0/b93bf0d9-b445-c036-887a-b2cc5428708a/mzaf_4723907531753881666.plus.aac.p.m4a' },
+      { trackNumber:11, trackName:'Boh\u00edo',                                                       trackTimeMillis:195947, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b9/3b/f0/b93bf0d9-b445-c036-887a-b2cc5428708a/mzaf_4723907531753881666.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'La Paloma',                                                   trackTimeMillis:70987,  previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/90/9f/07/909f072f-5221-6229-a7ca-3454c8b9d177/mzaf_390076359280746957.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'La Esquinita',                                                trackTimeMillis:239267, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/27/46/79/2746794c-c0eb-6b1b-2175-c9ae252aaa93/mzaf_17279975846898877606.plus.aac.p.m4a' },
       { trackNumber:14, trackName:'Zafra Negra (feat. Grupo de Salve de Mata Los Indios)',       trackTimeMillis:220307, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fc/07/db/fc07db54-28ce-a17f-b6c1-d0f78291c87a/mzaf_3882905486794080498.plus.aac.p.m4a' },
-      { trackNumber:15, trackName:'Te So√±√© (Bonus Track)',                                       trackTimeMillis:205973, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e5/91/91/e5919116-12e1-3f40-d1b2-35ca90690179/mzaf_8178753852131777681.plus.aac.p.m4a' },
+      { trackNumber:15, trackName:'Te So\u00f1\u00e9 (Bonus Track)',                                       trackTimeMillis:205973, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e5/91/91/e5919116-12e1-3f40-d1b2-35ca90690179/mzaf_8178753852131777681.plus.aac.p.m4a' },
     ]
   },
   { artist:'Selena',               title:'Entre a Mi Mundo',                         labelColor:'#e05090', note:"que mas puedo decir sobre selena. she was the first latin artist i listened to. i fondly remember singing como la flor for my school's talent show",                              spotifySearch:'selena+entre+a+mi+mundo',
@@ -1204,7 +1204,7 @@ const ALBUMS = [
       { trackNumber:7,  trackName:'La Carcacha',                                        trackTimeMillis:251000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/52/9f/a0529f09-bf78-c02d-3161-0725c72249e3/mzaf_428763075778387902.plus.aac.p.m4a' },
       { trackNumber:8,  trackName:'Siempre Estoy Pensando En Ti',                       trackTimeMillis:184000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/02/d9/c3/02d9c3a0-448b-dc85-c6ec-69f4cad97840/mzaf_10231544241277788631.plus.aac.p.m4a' },
       { trackNumber:9,  trackName:'Missing My Baby',                                    trackTimeMillis:232000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4a/71/b9/4a71b91e-8acf-351d-f5b8-67299ac4900c/mzaf_12006201794792890687.plus.aac.p.m4a' },
-      { trackNumber:10, trackName:'√Åmame',                                              trackTimeMillis:221000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/e4/5c/eee45cb4-8775-91f5-0712-a6dc55bc4a88/mzaf_13748013808290541364.plus.aac.p.m4a' },
+      { trackNumber:10, trackName:'\u00c1mame',                                              trackTimeMillis:221000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/e4/5c/eee45cb4-8775-91f5-0712-a6dc55bc4a88/mzaf_13748013808290541364.plus.aac.p.m4a' },
       { trackNumber:11, trackName:'Buenos Amigos (feat. Alvaro Torres)',                trackTimeMillis:285000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/72/5a/10725a94-1c42-76eb-7dda-74f804ee2d63/mzaf_7069576567676851598.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'Where Did the Feeling Go?',                          trackTimeMillis:224000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/e7/1b/24e71bec-2eaf-6b57-276d-721533d5dee7/mzaf_15075150801400607959.plus.aac.p.m4a' },
       { trackNumber:13, trackName:'Spoken Liner Notes by the Family (Entre a Mi Mundo)',trackTimeMillis:844000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/02/8a/fc/028afc0a-ed08-d201-9340-a276cec67b3f/mzaf_13423572566466917137.plus.aac.p.m4a' },
@@ -1230,8 +1230,8 @@ const ALBUMS = [
       { trackNumber:15, trackName:'get well soon',                              trackTimeMillis:322000, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3e/69/dc/3e69dc64-746d-348c-cc55-8e87310b07de/mzaf_7017774113645880823.plus.aac.p.m4a' },
     ]
   },
-  { artist:'ROSAL√çA',             title:'LUX',                                         labelColor:'#d0406060', note:"one of the most interesting albums i've listened to. rosalia is the queen of experimenting with new sounds",              spotifySearch:'rosalia+lux+album',
-    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/200x200bb.jpg', collectionId:1848167516, artistName:'ROSAL√çA', collectionName:'LUX', year:2025 },
+  { artist:'ROSAL\u00cdA',             title:'LUX',                                         labelColor:'#d0406060', note:"one of the most interesting albums i've listened to. rosalia is the queen of experimenting with new sounds",              spotifySearch:'rosalia+lux+album',
+    staticMeta: { artUrl:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/600x600bb.jpg', artSmall:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/ae/80/95ae8046-a6b9-e493-0def-5ae33d63f43a/196873722672.jpg/200x200bb.jpg', collectionId:1848167516, artistName:'ROSAL\u00cdA', collectionName:'LUX', year:2025 },
     staticTracks: [
       { trackNumber:1,  trackName:'Sexo, Violencia y Llantas',   trackTimeMillis:140760, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/98/7c/94987cb6-3ca1-542a-e208-f0aa29ae2e31/mzaf_16260452829243281393.plus.aac.p.m4a' },
       { trackNumber:2,  trackName:'Reliquia',                    trackTimeMillis:230240, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/92/ed/09/92ed09fd-e2d0-fdf3-3633-adc2ca8fd75b/mzaf_6242627331043325594.plus.aac.p.m4a' },
@@ -1241,12 +1241,12 @@ const ALBUMS = [
       { trackNumber:6,  trackName:'Berghain',                    trackTimeMillis:178853, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/97/fc/e9/97fce9c4-feb2-ab57-2de4-5898a770284e/mzaf_8647401501773731547.plus.aac.p.m4a' },
       { trackNumber:7,  trackName:'La Perla',                    trackTimeMillis:195547, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/37/fb/8c/37fb8c18-2dcf-4b58-0700-1f7aee6a9477/mzaf_719973323638252032.plus.aac.p.m4a' },
       { trackNumber:8,  trackName:'Mundo Nuevo',                 trackTimeMillis:140373, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/71/ba/9e71ba96-f149-dcf5-c82e-5bc5b029ce9a/mzaf_4507195229409816267.plus.aac.p.m4a' },
-      { trackNumber:9,  trackName:'De Madrug√°',                  trackTimeMillis:104400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/e9/de/94e9deeb-d840-6ac7-2d7e-27c1b5bb936d/mzaf_1536741442224013160.plus.aac.p.m4a' },
+      { trackNumber:9,  trackName:'De Madrug\u00e1',                  trackTimeMillis:104400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/94/e9/de/94e9deeb-d840-6ac7-2d7e-27c1b5bb936d/mzaf_1536741442224013160.plus.aac.p.m4a' },
       { trackNumber:10, trackName:'Dios Es Un Stalker',          trackTimeMillis:130507, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/d7/7d/8fd77df3-a2bc-2fc0-89fa-1f51b7989d56/mzaf_15509108202613806967.plus.aac.p.m4a' },
       { trackNumber:11, trackName:'La Yugular',                  trackTimeMillis:258613, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e3/14/8e/e3148ed7-937e-de99-e49a-2fca62d61f81/mzaf_15769678938995126721.plus.aac.p.m4a' },
       { trackNumber:12, trackName:'Sauvignon Blanc',             trackTimeMillis:162533, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/31/9b/c1319bbb-c1c8-3306-85fc-f71d37cba6d1/mzaf_13910159643105581982.plus.aac.p.m4a' },
-      { trackNumber:13, trackName:'La Rumba Del Perd√≥n',         trackTimeMillis:251987, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/a1/17/48a11743-9e8f-2bba-7dda-802eae395c51/mzaf_4883992666434171328.plus.aac.p.m4a' },
-      { trackNumber:14, trackName:'Mem√≥ria',                     trackTimeMillis:225400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/18/7b/d2/187bd2cd-524a-27c6-adc4-85c6d13e6f78/mzaf_11528971165904258656.plus.aac.p.m4a' },
+      { trackNumber:13, trackName:'La Rumba Del Perd\u00f3n',         trackTimeMillis:251987, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/a1/17/48a11743-9e8f-2bba-7dda-802eae395c51/mzaf_4883992666434171328.plus.aac.p.m4a' },
+      { trackNumber:14, trackName:'Mem\u00f3ria',                     trackTimeMillis:225400, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/18/7b/d2/187bd2cd-524a-27c6-adc4-85c6d13e6f78/mzaf_11528971165904258656.plus.aac.p.m4a' },
       { trackNumber:15, trackName:'Magnolias',                   trackTimeMillis:194813, previewUrl:'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/65/c2/c165c2b7-e47f-2cde-6f75-5db1896251c3/mzaf_6805775802281991955.plus.aac.p.m4a' },
     ]
   },
@@ -1296,7 +1296,7 @@ const progressFill    = document.getElementById('progressFill');
 const timeDisplay     = document.getElementById('timeDisplay');
 const volSlider       = document.getElementById('volSlider');
 
-// ‚îÄ‚îÄ Fetch album art + collectionId from iTunes ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Fetch album art + collectionId from iTunes ------------------------------
 async function fetchAlbumMeta(idx) {
   const a = ALBUMS[idx];
   if (a.staticMeta) return a.staticMeta;
@@ -1328,7 +1328,7 @@ async function fetchAlbumMeta(idx) {
   return null;
 }
 
-// ‚îÄ‚îÄ Fetch tracklist ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Fetch tracklist ----------------------------------------------------------
 async function fetchTracks(collectionId) {
   try {
     const r = await fetch(`https://itunes.apple.com/lookup?id=${collectionId}&entity=song&country=us`);
@@ -1340,7 +1340,7 @@ async function fetchTracks(collectionId) {
   return [];
 }
 
-// ‚îÄ‚îÄ Vinyl CSS background ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Vinyl CSS background -----------------------------------------------------
 function vinylBg(labelColor) {
   return `
     radial-gradient(circle at center, ${labelColor} 0%, ${labelColor} 27%, transparent 27.5%),
@@ -1348,7 +1348,7 @@ function vinylBg(labelColor) {
   `;
 }
 
-// ‚îÄ‚îÄ Build album grid ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Build album grid ---------------------------------------------------------
 function buildGrid() {
   const grid = document.getElementById('albumGrid');
   ALBUMS.forEach((a, i) => {
@@ -1385,7 +1385,7 @@ function buildGrid() {
   });
 }
 
-// ‚îÄ‚îÄ Select and play an album ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Select and play an album -------------------------------------------------
 async function selectAlbum(idx) {
   if (currentIdx === idx) return;
 
@@ -1403,24 +1403,24 @@ async function selectAlbum(idx) {
   vinylOnPlatter.classList.remove('spinning', 'playing');
   tonearm.classList.remove('playing', 'parked');
 
-  // ‚îÄ‚îÄ Flying vinyl animation ‚îÄ‚îÄ
+  // -- Flying vinyl animation --
   await flyVinylToPlayer(card, album.labelColor);
 
-  // ‚îÄ‚îÄ Set vinyl color on platter ‚îÄ‚îÄ
+  // -- Set vinyl color on platter --
   vinylOnPlatter.style.background = vinylBg(album.labelColor);
   vinylOnPlatter.classList.add('visible');
 
-  // ‚îÄ‚îÄ Drop needle ‚îÄ‚îÄ
+  // -- Drop needle --
   setTimeout(() => {
     tonearm.classList.add('playing');
     setTimeout(() => { vinylOnPlatter.classList.add('spinning', 'playing'); }, 600);
   }, 200);
 
-  // ‚îÄ‚îÄ Update labels ‚îÄ‚îÄ
+  // -- Update labels --
   npLabel.textContent = 'now playing';
   npTitle.textContent = `${album.artist} \u2014 ${album.title}`;
 
-  // ‚îÄ‚îÄ Tracklist panel ‚îÄ‚îÄ
+  // -- Tracklist panel --
   tlTitle.textContent = album.title;
   tlArtist.textContent = album.artist;
   tlSpotify.href = `https://open.spotify.com/search/${album.spotifySearch}`;
@@ -1437,10 +1437,10 @@ async function selectAlbum(idx) {
     });
   }
 
-  // ‚îÄ‚îÄ Fetch & play tracks ‚îÄ‚îÄ
+  // -- Fetch & play tracks --
   tracks = [];
   trackIdx = 0;
-  trackList.innerHTML = '<li style="padding:10px 10px;font-size:0.75rem;color:var(--muted);font-style:italic;">loading tracks‚Ä¶</li>';
+  trackList.innerHTML = '<li style="padding:10px 10px;font-size:0.75rem;color:var(--muted);font-style:italic;">loading tracks...</li>';
 
   if (album.staticTracks) {
     tracks = album.staticTracks;
@@ -1448,7 +1448,7 @@ async function selectAlbum(idx) {
     renderTrackList();
     if (tracks.length) playTrack(0);
     const year = album.staticMeta?.year;
-    tlMeta.textContent = [year, `${tracks.length} tracks`].filter(Boolean).join(' ¬∑ ');
+    tlMeta.textContent = [year, `${tracks.length} tracks`].filter(Boolean).join(' &middot; ');
   } else {
     const meta = albumMeta[idx] || await fetchAlbumMeta(idx);
     if (meta) {
@@ -1458,7 +1458,7 @@ async function selectAlbum(idx) {
       trackIdx = 0;
       renderTrackList();
       if (tracks.length) playTrack(0);
-      tlMeta.textContent = [meta.year, `${tracks.length} tracks`].filter(Boolean).join(' ¬∑ ');
+      tlMeta.textContent = [meta.year, `${tracks.length} tracks`].filter(Boolean).join(' &middot; ');
     } else {
       trackList.innerHTML = '<li style="padding:10px;font-size:0.75rem;color:var(--muted);font-style:italic;">tracks unavailable</li>';
       tlMeta.textContent = '';
@@ -1466,7 +1466,7 @@ async function selectAlbum(idx) {
   }
 }
 
-// ‚îÄ‚îÄ Render tracklist ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Render tracklist ---------------------------------------------------------
 function renderTrackList() {
   trackList.innerHTML = '';
   tracks.forEach((t, i) => {
@@ -1485,7 +1485,7 @@ function renderTrackList() {
   });
 }
 
-// ‚îÄ‚îÄ Play a specific track ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Play a specific track ----------------------------------------------------
 function playTrack(i) {
   const t = tracks[i];
   if (!t?.previewUrl) return;
@@ -1500,7 +1500,7 @@ function playTrack(i) {
   document.querySelectorAll('.track-item').forEach((el, j) => el.classList.toggle('active', j === i));
 }
 
-// ‚îÄ‚îÄ Flying vinyl ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Flying vinyl -------------------------------------------------------------
 function flyVinylToPlayer(card, labelColor) {
   return new Promise(resolve => {
     const cardRect  = card.getBoundingClientRect();
@@ -1550,7 +1550,7 @@ function flyVinylToPlayer(card, labelColor) {
   });
 }
 
-// ‚îÄ‚îÄ Progress bar ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Progress bar -------------------------------------------------------------
 audio.addEventListener('timeupdate', () => {
   if (!audio.duration) return;
   const pct = (audio.currentTime / audio.duration) * 100;
@@ -1574,7 +1574,7 @@ function fmt(s) {
   return `${m}:${Math.floor(s % 60).toString().padStart(2,'0')}`;
 }
 
-// ‚îÄ‚îÄ Play / Pause ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Play / Pause -------------------------------------------------------------
 document.getElementById('playPauseBtn').addEventListener('click', () => {
   if (!audio.src) return;
   if (isPlaying) {
@@ -1593,7 +1593,7 @@ document.getElementById('playPauseBtn').addEventListener('click', () => {
   updatePP();
 });
 
-// ‚îÄ‚îÄ Prev / Next ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Prev / Next --------------------------------------------------------------
 document.getElementById('prevBtn').addEventListener('click', () => {
   if (!tracks.length) return;
   trackIdx = (trackIdx - 1 + tracks.length) % tracks.length;
@@ -1605,7 +1605,7 @@ document.getElementById('nextBtn').addEventListener('click', () => {
   playTrack(trackIdx); renderTrackList();
 });
 
-// ‚îÄ‚îÄ Stop & reset ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Stop & reset -------------------------------------------------------------
 document.getElementById('stopBtn').addEventListener('click', resetPlayer);
 
 function resetPlayer() {
@@ -1628,17 +1628,17 @@ function resetPlayer() {
   updatePP();
 }
 
-// ‚îÄ‚îÄ Volume ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Volume -------------------------------------------------------------------
 volSlider.addEventListener('input', () => { audio.volume = parseFloat(volSlider.value); });
 
-// ‚îÄ‚îÄ Update play/pause icon ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Update play/pause icon ----------------------------------------------------
 function updatePP() {
   ppIcon.innerHTML = isPlaying
     ? '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'
     : '<path d="M8 5v14l11-7z"/>';
 }
 
-// ‚îÄ‚îÄ Init ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+// -- Init ----------------------------------------------------------------------
 buildGrid();
 </script>
 </body>
