@@ -696,7 +696,15 @@
       }
       .tracklist-panel {
         width: 100%;
-        min-height: 160px;
+        min-height: 380px;
+      }
+      .tracklist-panel .tl-header,
+      .tracklist-panel .track-list,
+      .tracklist-panel .tl-open {
+        transition: opacity 0.5s ease 0.2s;
+      }
+      .tl-empty {
+        transition: opacity 0.3s ease;
       }
       .tl-empty-disc {
         width: 64px;
