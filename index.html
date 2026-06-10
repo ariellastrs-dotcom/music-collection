@@ -687,10 +687,19 @@
       }
       .player-section {
         padding: 1.5rem;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
       }
       .turntable {
         zoom: 0.68;
+      }
+      .tracklist-panel {
+        width: 100%;
+        min-height: unset;
+      }
+      .track-list {
+        max-height: 220px;
       }
       .grid-section {
         padding: 2rem 1.5rem 4rem;
@@ -700,8 +709,8 @@
         text-align: center;
       }
       .album-grid {
-        grid-template-columns: 1fr;
-        max-width: 160px;
+        grid-template-columns: repeat(2, 140px);
+        justify-content: center;
         margin: 0 auto;
       }
     }
