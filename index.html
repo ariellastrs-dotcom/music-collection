@@ -1418,7 +1418,7 @@ async function selectAlbum(idx) {
 
   // ‚îÄ‚îÄ Update labels ‚îÄ‚îÄ
   npLabel.textContent = 'now playing';
-  npTitle.textContent = `${album.artist} ‚Äî ${album.title}`;
+  npTitle.textContent = `${album.artist} \u2014 ${album.title}`;
 
   // ‚îÄ‚îÄ Tracklist panel ‚îÄ‚îÄ
   tlTitle.textContent = album.title;
@@ -1478,7 +1478,7 @@ function renderTrackList() {
     li.innerHTML = `
       <span class="track-num">${t.trackNumber}</span>
       <span class="track-name">${t.trackName}</span>
-      <span class="track-dur">${ms ? `${m}:${s}` : '‚Äî'}</span>
+      <span class="track-dur">${ms ? `${m}:${s}` : '\u2014'}</span>
     `;
     li.addEventListener('click', () => { trackIdx = i; playTrack(i); renderTrackList(); });
     trackList.appendChild(li);
@@ -1510,7 +1510,7 @@ function flyVinylToPlayer(card, labelColor) {
     const pRect     = platter.getBoundingClientRect();
     const size      = cardRect.width;
 
-    // Start from the center of the vinyl peek (fixed coords ‚Äî no scrollY needed)
+    // Start from the center of the vinyl peek (fixed coords \u2014 no scrollY needed)
     const sx = peekRect.left + peekRect.width / 2 - size / 2;
     const sy = peekRect.top  + peekRect.height / 2 - size / 2;
 
@@ -1617,7 +1617,7 @@ function resetPlayer() {
   tlEmpty.classList.add('visible');
   tlMeta.textContent = '';
   npLabel.textContent = 'select an album';
-  npTitle.textContent = '‚Äî';
+  npTitle.textContent = '\u2014';
   progressFill.style.width = '0%';
   timeDisplay.textContent = '';
   tracks = []; trackIdx = 0;
