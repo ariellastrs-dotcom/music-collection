@@ -1448,7 +1448,7 @@ async function selectAlbum(idx) {
     renderTrackList();
     if (tracks.length) playTrack(0);
     const year = album.staticMeta?.year;
-    tlMeta.textContent = [year, `${tracks.length} tracks`].filter(Boolean).join(' ¬∑ ');
+    tlMeta.textContent = [year, `${tracks.length} tracks`].filter(Boolean).join(' \u00b7 ');
   } else {
     const meta = albumMeta[idx] || await fetchAlbumMeta(idx);
     if (meta) {
@@ -1458,7 +1458,7 @@ async function selectAlbum(idx) {
       trackIdx = 0;
       renderTrackList();
       if (tracks.length) playTrack(0);
-      tlMeta.textContent = [meta.year, `${tracks.length} tracks`].filter(Boolean).join(' ¬∑ ');
+      tlMeta.textContent = [meta.year, `${tracks.length} tracks`].filter(Boolean).join(' \u00b7 ');
     } else {
       trackList.innerHTML = '<li style="padding:10px;font-size:0.75rem;color:var(--muted);font-style:italic;">tracks unavailable</li>';
       tlMeta.textContent = '';
